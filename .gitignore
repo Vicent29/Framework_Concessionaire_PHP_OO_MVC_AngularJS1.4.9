@@ -1,0 +1,5 @@
+backend/model/jwt.ini
+backend/model/mailgun.ini
+backend/model/db.ini
+**.ini
+.htacces

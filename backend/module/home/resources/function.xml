@@ -1,0 +1,14 @@
+<functions>
+    <function>
+        <name>carousel_brand</name>
+        <uri>carousel_brand</uri>
+    </function>
+    <function>
+        <name>categoria</name>
+        <uri>categoria</uri>
+    </function>
+    <function>
+        <name>type</name>
+        <uri>type</uri>
+    </function>
+</functions>

@@ -1,0 +1,18 @@
+<functions>
+    <function>
+        <name>type_car</name>
+        <uri>type_car</uri>
+    </function>
+    <function>
+        <name>brand_car</name>
+        <uri>brand_car</uri>
+    </function>
+    <function>
+        <name>brand_category</name>
+        <uri>brand_category</uri>
+    </function>
+    <function>
+        <name>autocomplete</name>
+        <uri>autocomplete</uri>
+    </function>
+</functions>

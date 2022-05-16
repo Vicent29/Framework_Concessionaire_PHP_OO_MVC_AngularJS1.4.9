@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ECO CAR</title>
+    <link rel="shortcut icon" href="frontend\views\img\icon.png">
+    <!--========== ANGULAR JS ==========-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>
+
+    <!--========== CONTROLLER AND SERVICES ==========-->
+    <script src="frontend/router.js"></script>
+    <script src="frontend/services.js"></script>
+    <script type = "text/javascript" src="frontend/module/contact/ctrl/ctrl_contact.js"></script>
+
+    <!--========== TOASTR ==========-->
+    <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
+    <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+    <!--========== CSS ==========-->
+    <link href="frontend/views/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="frontend/views/css/style.css">
+
+</head>
+
+<body>
+    <div ng-include='"frontend/views/inc/header.html"'></div>
+    <div ng-include='"frontend/views/inc/menu.html"'></div>
+    <div ng-view autoscroll="true"></div>
+    <div ng-include='"frontend/views/inc/footer.html"'></div>
+</body>
+
+</html>

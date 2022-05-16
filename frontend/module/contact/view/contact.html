@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div class="contact-html">
+        <br>
+        <div class="contact-form">
+            <h2><b>CONTACTA CON NOSOTROS</b></h2>
+            <hr>
+            <form id = "sendEmail_form"  name = "sendEmail_form">
+                <div class="group">
+                    <label>NOMBRE Y APELLIDOS</label><br>
+                    <input type="text" ng-model="name" ng-pattern ="regName" name="name" id="name" required="required" placeholder="Nombre" value=""/>
+                    <span id="error_name" class="error"></span>
+                </div>
+                <div class="group">
+                    <label>CORREO ELECTRONICO</label><br>
+                    <input type="text" ng-model="email" ng-pattern ="regEmail" name="email" id="email" required="required" placeholder="Correo electronico" value="" />
+                    <span id="error_emial" class="error"></span>
+                </div>
+                <div class="group">
+                    <label>ASUNTO</label><br>
+                    <select ng-model="asunto" ng-pattern="regAsunto" name="matter" id="matter">
+                        <option selected>Seleccione un asunto</option>
+                        <option>Problemas con la pagina</option>
+                        <option>Mejoras para la pagina</option>
+                        <option>Problemas con el registro</option>
+                        <option>Contacto para una promoción</option>
+                        <option>Otros</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label>MENSAJE</label><br>
+                    <textarea rows="4" cols="50" ng-model="message" ng-pattern="regMessage" name="message" id="message"></textarea>
+                    <span id="error_dinfo" class="error"></span>
+                </div>
+            </form>
+            
+            <div class="button__contact">
+                <button type="button" ng-disabled = "sendEmail_form.name.$invalid && sendEmail_form.email.$invalid && sendEmail_form.asunto.$invalid  && sendEmail_form.message.$invalid" 
+                                      ng-click="sendEmail()" name="send_contact" id="send_contact">ENVIAR</button>
+            </div>
+        </div><br><br><br><br>
+    </div>
+</body>
+
+</html>

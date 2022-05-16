@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>send_email_contact</name>
+        <uri>send_email_contact</uri>
+    </function>
+</functions>
