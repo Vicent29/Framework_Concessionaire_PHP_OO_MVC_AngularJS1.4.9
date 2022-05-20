@@ -1,0 +1,84 @@
+<!-- CARRUSEL BRANDS -->
+
+<!-- CATEGORIES -->
+<section id="port-sec">
+    <div class="container">
+        <div class="row pad-row">
+            <div class="col-md-12 col-sm-12">
+                <ul class="portfolio-items2 col-3">
+                    <h2 class="cat">Categories Cars</h2>
+                    <div id="containerCategories" ng-repeat="cat in categorys_home">
+                        <div class="div_cate" id="{{cat.name_cat}}" ng-click="">
+                            <li class="portfolio-item">
+                                <div class="item-main">
+                                    <div class="portfolio-image">
+                                        <img
+                                            src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{cat.img_cat}}">
+                                    </div>
+                                    <h5>{{cat.name_cat}}</h5>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TYPE CARS -->
+<section id="port-sec">
+    <div class="container">
+        <div class="row pad-row">
+            <div class="col-md-13 col-sm-13">
+                <ul class="portfolio-items col-3">
+                    <h2 class="cat">Type Cars</h2>
+                    <div id="containerTypecar" ng-repeat="type in type_motor_home">
+                        <div class="div_motor" id="{{type.name_tmotor}}">
+                            <li class='portfolio-item2'>
+                                <div class='item-main2'>
+                                    <div class='portfolio-image2'>
+                                        <img src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{type.img_tmotor}}"
+                                            alt="foto">
+                                    </div>
+                                    <h5>{{type.name_tmotor}}</h5>
+                                </div>
+                            </li>
+
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- APPI BOOKS -->
+<div class="content_appi_books">
+    <div id="books_content" class="books_content">
+        <h2 class="cat">Books releted</h2>
+        <div id="books_car" class="books_car" ng-repeat="book in books_home">
+            <!-- <h2>{{books.publishDate}}</h2> -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="panel panel-danger adjust-border-radius">
+                    <div class="title_book panel-heading adjust-border">
+                        <h4>{{book.title}}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="plan">
+                            <li class="Img_new"><img src="{{book.image}}"></li>
+                            <li><i id="col-ico" class="fa-solid fa-user-large fa-sm"></i>{{books.authors[0]}}</li>
+                            <li><i id="col-ico" class="fa-solid fa-calendar-days fa-sm"></i>{{books.publishDate}}</li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="{{book.link}}" target="_blank" class="btn btn-danger btn-block btn-lg adjust-border-radius">MORE INFO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="btn-more-books" class="btn-more-books">
+        <button class="no-results" id=""></button></br>
+    </div>
+</div>
