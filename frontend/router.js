@@ -42,6 +42,31 @@ app.config(['$routeProvider', function ($routeProvider) {
         });
 }]);
 
-app.run(function($rootScope, services){
-    console.log("Soy el apprun");
+app.run(function($rootScope, services, services_search){
+    services_search.search_type_motor();
+    services_search.search_brand();
+
+    $rootScope.click_motor_brand = function(type_motor = 0){
+        services_search.search_brand(type_motor);
+        $rootScope.search_motor_select= type_motor;
+    }
+
+    $rootScope.click_brand = function(brand = 0){
+        $rootScope.search_brand_select= brand;
+    }
+
+    $rootScope.click_autocomplete = function(type_motor = 0, brand = 0, city = 0){
+        $rootScope.show_city = true;
+        $rootScope.search_motor_select= type_motor;
+        $rootScope.search_brand_select= brand;
+        services_search.search_autocomplete(type_motor, brand, city);
+    }
+
+    $rootScope.click_select_city = function(){
+        $rootScope.show_city = false;
+        $rootScope.search_city_select = this.city.city;
+    }
+    $rootScope.click_search = function(){
+        services_search.btn_search();
+    }
 });

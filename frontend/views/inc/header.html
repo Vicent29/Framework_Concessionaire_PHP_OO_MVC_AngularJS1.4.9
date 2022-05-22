@@ -3,10 +3,16 @@
         <!-- ======SEARCH====== -->
         <div class="header__container">
             <div class="search__form">
-                <select id="type_car"></select>
-                <select id="brand_car"></select>
-                <input type="text" id="autocom" autocomplete="off" />
-                <input type="button" value="..." id="search-btn" />
+                <select id="type_car" ng-model="selected_type_car" ng-change="click_motor_brand(selected_type_car)"> 
+                    <option value = "">Type Car</option>
+                    <option ng-repeat="type in tmotor_search" value="{{type.cod_tmotor}}">{{type.name_tmotor}}</option>
+                </select>
+                <select id="brand_car" ng-model="selected_brand" ng-change="click_brand(selected_brand)">
+                    <option value = "">Brands</option>
+                    <option ng-repeat="brand in brands_search" ng-model="prueba" value="{{brand.name_brand}}">{{brand.name_brand}}</option>
+                </select>
+                <input type="text" id="autocom" ng-model="autocomplete" ng-change="click_autocomplete(selected_type_car, selected_brand, autocomplete)" autocomplete="off"/>
+                <input type="button" value="..." id="search-btn" ng-click="click_search()" />
 
                 <ul id=nav_desp_user>
                     <li class="log_princ" style="width:50px;height:50px;"><button class="log-icon"></button>
@@ -16,7 +22,9 @@
                     </li>
                 </ul>
             </div>
-            <div id="search_auto"></div>
+            <div id="search_auto" ng-show="show_city">
+                <div ng-click="click_select_city()" ng-repeat="city in city_search" class="searchElement">{{city.city}}</div>
+            </div>
         </div>
     </body>
 </html>

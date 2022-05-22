@@ -1,11 +1,10 @@
 app.controller('ctrl_home', function ($scope, brands, categorys, type_motor, books) {
     // CARRUSEL
     let total = brands.length;
-    $scope.myInterval = 1500;
+    $scope.myInterval = 3000;
     $scope.keyboard=true;
     $scope.noWrapSlides = false;
     $scope.brands_home = brands.slice(0, total);
-    
     //CATEGORYS
     $scope.categorys_home = categorys;
     //TYPE_MOTOR
