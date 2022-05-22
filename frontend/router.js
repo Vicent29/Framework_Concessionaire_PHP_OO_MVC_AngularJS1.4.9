@@ -21,8 +21,24 @@ app.config(['$routeProvider', function ($routeProvider) {
                     return services.get_api('https://www.googleapis.com/books/v1/volumes?q=electric%20cars&maxResults=20');
                 }
             }
-        })
-        .otherwise("/home", {
+        }).when("/shop", {
+            templateUrl: "frontend/module/home/view/home.html",
+            controller: "ctrl_home",
+            resolve: {
+                brands: function (services) {
+                    return services.post('home', 'carousel_brand');
+                },
+                categorys: function (services) {
+                    return services.post('home', 'categoria');
+                },
+                type_motor: function (services) {
+                    return services.post('home', 'type');
+                },
+                books: function (services) {
+                    return services.get_api('https://www.googleapis.com/books/v1/volumes?q=electric%20cars&maxResults=20');
+                }
+            }
+        }).otherwise("/home", {
             templateUrl: "frontend/module/home/view/home.html",
             controller: "ctrl_home",
             resolve: {
