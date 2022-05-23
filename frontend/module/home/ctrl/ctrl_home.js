@@ -1,4 +1,4 @@
-app.controller('ctrl_home', function ($scope, brands, categorys, type_motor, books) {
+app.controller('ctrl_home', function ($scope, $window, brands, categorys, type_motor, books) {
     // CARRUSEL
     let total = brands.length;
     $scope.myInterval = 3000;
@@ -25,4 +25,34 @@ app.controller('ctrl_home', function ($scope, brands, categorys, type_motor, boo
         });
         $scope.books_home = books_array;
 
+    //REDIRECTS al SHOP
+    $scope.click_carrusel_brand = function() {
+        var brand_filter = [];
+        brand_filter.push({ "name_brand": [this.brand.name_brand] });
+        localStorage.removeItem('filters');
+        localStorage.removeItem('category_home');
+        localStorage.removeItem('type_motor_filter');
+        localStorage.setItem('brand_filter', JSON.stringify(brand_filter));
+        $window.location.href='#/shop';
+    }
+
+    $scope.click_categorys_home = function() {
+        var category_filter = [];
+        category_filter.push({ "category_home": [this.cat.name_cat] });
+        localStorage.removeItem('filters');
+        localStorage.removeItem('brand_filter');
+        localStorage.removeItem('type_motor_filter');
+        localStorage.setItem('category_filter', JSON.stringify(category_filter));
+        $window.location.href='#/shop';
+    }
+
+    $scope.click_motor_home = function() {
+        var type_motor_filter = [];
+        type_motor_filter.push({ "name_tmotor": [this.type.name_tmotor]});
+        localStorage.removeItem('filters');
+        localStorage.removeItem('brand_filter');
+        localStorage.removeItem('category_filter');
+        localStorage.setItem('type_motor_filter', JSON.stringify(type_motor_filter));
+        $window.location.href='#/shop';
+    }
 });//end controller

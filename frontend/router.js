@@ -22,22 +22,11 @@ app.config(['$routeProvider', function ($routeProvider) {
                 }
             }
         }).when("/shop", {
-            templateUrl: "frontend/module/home/view/home.html",
-            controller: "ctrl_home",
-            resolve: {
-                brands: function (services) {
-                    return services.post('home', 'carousel_brand');
-                },
-                categorys: function (services) {
-                    return services.post('home', 'categoria');
-                },
-                type_motor: function (services) {
-                    return services.post('home', 'type');
-                },
-                books: function (services) {
-                    return services.get_api('https://www.googleapis.com/books/v1/volumes?q=electric%20cars&maxResults=20');
-                }
-            }
+            templateUrl: "frontend/module/shop/view/shop.html",
+            controller: "ctrl_shop",
+            // resolve: {
+                
+            // }
         }).otherwise("/home", {
             templateUrl: "frontend/module/home/view/home.html",
             controller: "ctrl_home",

@@ -2,7 +2,7 @@
 <div class="carrusel_home">
     <carousel interval="myInterval" no-wrap="noWrapSlides">
         <slide ng-repeat="brand in brands_home">
-            <img class="imgs_brands" src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{brand.img_brand}}" ng-click="" style="margin:auto;">
+            <img class="imgs_brands" src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{brand.img_brand}}" ng-click="click_carrusel_brand()" style="margin:auto;">
         </slide>
     </carousel>
 </div>
@@ -16,7 +16,7 @@
                 <ul class="portfolio-items2 col-3">
                     <h2 class="cat">Categories Cars</h2>
                     <div id="containerCategories" ng-repeat="cat in categorys_home">
-                        <div class="div_cate" id="{{cat.name_cat}}" ng-click="">
+                        <div class="div_cate" ng-click="click_categorys_home()">
                             <li class="portfolio-item">
                                 <div class="item-main">
                                     <div class="portfolio-image">
@@ -42,7 +42,7 @@
                 <ul class="portfolio-items col-3">
                     <h2 class="cat">Type Cars</h2>
                     <div id="containerTypecar" ng-repeat="type in type_motor_home">
-                        <div class="div_motor" id="{{type.name_tmotor}}">
+                        <div class="div_motor" id="{{type.name_tmotor}}" ng-click="click_motor_home()">
                             <li class='portfolio-item2'>
                                 <div class='item-main2'>
                                     <div class='portfolio-image2'>
