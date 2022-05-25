@@ -1,0 +1,115 @@
+<html>
+
+<body>
+    <!-- filters  -->
+    <div class="div_filters" id="div_filters">
+        <form name="form_filters" class="form_filters">
+            <div class="filters_content">
+                <div id="filters" class="filters">
+                    <div class="filters1">
+                        <p><u>SEARCH CAR:</u></p>
+                        <hr class=hr-filter>
+                        <div class="color">
+                            <h4>COLOR:</h4>
+                            <input type="checkbox" value="White" id="White" class="color" ng-model="color.white" ng-checked="">White</br>
+                            <input type="checkbox" value="Blue" id="Blue" class="color">Blue</br>
+                            <input type="checkbox" value="Black" id="Black" class="color">Black</br>
+                            <input type="checkbox" value="Red" id="Red" class="color">Red</br>
+                            <input type="checkbox" value="Grey" id="Grey" class="color">Grey</br>
+                            <input type="checkbox" value="Orange" id="Orange" class="color">Orange</br>
+                            <input type="checkbox" value="Brown" id="Brown" class="color">Brown</br>
+                        </div>
+                        <hr class=hr-filter>
+                        <div class="doors">
+                            <h4>NUMBER DOORS:</h4>
+                            <input type="radio" name="doors" value="3" id="3" class="doors" ng-model="door.tres">3</br>
+                            <input type="radio" name="doors" value="5" id="5" class="doors">5</br>
+                        </div>
+                        <hr class=hr-filter>
+                        <div class="doors">
+                            <h4>CATEGORY:</h4>
+                            <select name="select_cat" id="select_cat" ng-model="shop_cat_selected">
+                                <option value="*" id="*">All</option>
+                                <option value="1" id="1">Km 0</option>
+                                <option value="2" id="2">Second Hand</option>
+                                <option value="3" id="3">Renting</option>
+                                <option value="4" id="4">Pre-Owned</option>
+                                <option value="5" id="5">Offer</option>
+                                <option value="6" id="6">New</option>
+                            </select>
+                        </div>
+                        <hr class=hr-filter>
+                        </br><input type="button" class="submit_filter" id="buttons_filters" value="SEARCH" ng-click="search_filters_home()">
+                        <input type="button" class="remove_filters" id="buttons_filters" value="REMOVE" ng-click="remove_filters_shop()"></br>
+                    </div>
+                    <div class="orderby_content">
+                        <p>ORDER BY:</p>
+                        <select id="orderby">
+                            <option value="0">Order by...</option>
+                            <option value="price">Price</option>
+                            <option value="km">KM</option>
+                        </select>
+                        <input type="button" value="ORDER" id="order-btn" class="order-btn" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- list-cars -->
+    <div class="container_shop" id="content_shop_cars">
+        <div ng-show="show_not_cars"><h3>¡No se encuentarn resultados con los filtros aplicados!</h3></div>
+        <div class="list_content_shop" ng-repeat="car in select_cars">
+            <div class='list_product'>
+                <div class='img-container'>
+                    <img src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{car.img_car}}">
+                </div>
+                <div class='product-info'>
+                    <div class='product-content'>
+                        <h1><b>{{car.id_brand}}   {{car.name_model}}<a class='list__heart'
+                                    id="{{car.id_car}}"><i id="{{car.id_car}}"
+                                        class="fa-solid fa-heart fa-lg"></i></a></b></h1>
+                        <p>Up-to-date maintenance and revisions</p>
+                        <ul>
+                            <li> <i id='col-ico' class='fa-solid fa-road fa-xl'></i>&nbsp;&nbsp; {{car.Km}} KM</li>
+                            <li> <i id='col-ico' class='fa-solid fa-person fa-xl'></i>&nbsp;&nbsp;&nbsp; {{car.gear_shift}}</li>
+                            <li> <i id='col-ico' class='fa-solid fa-palette fa-xl'></i>&nbsp; {{car.color}}</li>
+                        </ul>
+                        <div class='buttons'>
+                            <button id="car.id_car}}" class='more_info_list button add'>More Info</button>
+                            <button class='button buy'>Buy</button>
+                            <span class='button' id='price'>{{car.price}} €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id='div_map_shop' style="border: 1px black solid;"></div>
+
+
+    <!-- details-car -->
+    <div id="details-shop">
+        <div class="date_img" id="container-date-img"> </div>
+        <div class="date_car" id="container-date-img"> </div>
+    </div>
+    <div id='div_map_details' ng-show="show_map_details"></div>
+
+
+    <!-- div_spiner -->
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
+
+    <!-- div coches relacioandos -->
+    <div class="results"></div>
+
+    <!-- paginacio -->
+    <div id="pagination"></div>
+
+</body>
+
+</html>

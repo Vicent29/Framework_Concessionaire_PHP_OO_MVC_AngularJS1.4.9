@@ -42,7 +42,7 @@
                 <ul class="portfolio-items col-3">
                     <h2 class="cat">Type Cars</h2>
                     <div id="containerTypecar" ng-repeat="type in type_motor_home">
-                        <div class="div_motor" id="{{type.name_tmotor}}" ng-click="click_motor_home()">
+                        <div class="div_motor" ng-click="click_motor_home()">
                             <li class='portfolio-item2'>
                                 <div class='item-main2'>
                                     <div class='portfolio-image2'>
@@ -66,7 +66,6 @@
     <div id="books_content" class="books_content">
         <h2 class="cat">Books releted</h2>
         <div id="books_car" class="books_car" ng-repeat="book in books_home">
-            <!-- <h2>{{books.publishDate}}</h2> -->
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="panel panel-danger adjust-border-radius">
                     <div class="title_book panel-heading adjust-border">
@@ -75,8 +74,8 @@
                     <div class="panel-body">
                         <ul class="plan">
                             <li class="Img_new"><img src="{{book.image}}"></li>
-                            <li><i id="col-ico" class="fa-solid fa-user-large fa-sm"></i>{{books.authors[0]}}</li>
-                            <li><i id="col-ico" class="fa-solid fa-calendar-days fa-sm"></i>{{books.publishDate}}</li>
+                            <li><i id="col-ico" class="fa-solid fa-user-large fa-sm"></i>{{book.authors[0]}}</li>
+                            <li><i id="col-ico" class="fa-solid fa-calendar-days fa-sm"></i>{{book.publishDate}}</li>
                         </ul>
                     </div>
                     <div class="panel-footer">

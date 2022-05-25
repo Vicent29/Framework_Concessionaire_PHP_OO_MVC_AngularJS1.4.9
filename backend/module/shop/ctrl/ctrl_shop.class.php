@@ -5,7 +5,7 @@
 
     class ctrl_shop {
         function all_cars() {
-            echo json_encode(common::load_model('shop_model', 'get_all_cars', [$_POST['args'][0], $_POST['args'][1]]));
+            echo json_encode(common::load_model('shop_model', 'get_all_cars', [$_POST['offset'], $_POST['limit']]));
         }
 
         function details_car() {
@@ -17,11 +17,11 @@
         }
 
         function home_filter() {
-            echo json_encode(common::load_model('shop_model', 'get_home_filter',[ $_POST['args'][0], $_POST['args'][1], $_POST['args'][2], $_POST['args'][3] ]));
+            echo json_encode(common::load_model('shop_model', 'get_home_filter',[ $_POST[0], $_POST[1], $_POST[2], $_POST[3] ]));
         }
 
         function operations_search_filter() {
-            echo json_encode(common::load_model('shop_model', 'get_search_filter',[ $_POST['args'][0], $_POST['args'][1], $_POST['args'][2], $_POST['args'][3], $_POST['args'][4], $_POST['args'][5]]));
+            echo json_encode(common::load_model('shop_model', 'get_search_filter',[ $_POST[0], $_POST[1], $_POST[2], $_POST[3], $_POST[4], $_POST[5]]));
         }
 
         function count_more_visit() {

@@ -24,9 +24,11 @@ app.config(['$routeProvider', function ($routeProvider) {
         }).when("/shop", {
             templateUrl: "frontend/module/shop/view/shop.html",
             controller: "ctrl_shop",
-            // resolve: {
-                
-            // }
+            resolve: {
+                all_cars: function (services) {
+                    return services.post('shop', 'all_cars',{'offset':0, 'limit':20});
+                } 
+            }
         }).otherwise("/home", {
             templateUrl: "frontend/module/home/view/home.html",
             controller: "ctrl_home",
@@ -70,6 +72,8 @@ app.run(function($rootScope, services, services_search){
     $rootScope.click_select_city = function(){
         $rootScope.show_city = false;
         $rootScope.search_city_select = this.city.city;
+        //Mejora para que el nombre del valor suba al input cuando seleccioanas la ciudad. 
+        $rootScope.autocomplete = this.city.city;
     }
     $rootScope.click_search = function(){
         services_search.btn_search();

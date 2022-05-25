@@ -1,5 +1,9 @@
-app.factory('services_search', ['services', '$rootScope', function (services, $rootScope) {
-    let service = { search_type_motor: search_type_motor, search_brand: search_brand, search_autocomplete: search_autocomplete, btn_search: btn_search };
+app.factory('services_search', ['services', '$rootScope', '$location', '$window', function (services, $rootScope, $location,  $window) {
+    let service = {
+         search_type_motor: search_type_motor, 
+         search_brand: search_brand, 
+         search_autocomplete: search_autocomplete,
+          btn_search: btn_search };
     return service;
 
     function search_type_motor() {
@@ -48,11 +52,11 @@ app.factory('services_search', ['services', '$rootScope', function (services, $r
     }
 
     function btn_search() {
-        if ($rootScope.search_motor_select == undefined){
-            $rootScope.search_motor_select = 0;
+        if ($rootScope.search_motor_select == undefined || $rootScope.search_motor_select == ""){
+            $rootScope.search_motor_select = "0";
         }
-        if (($rootScope.search_brand_select == undefined)){
-            $rootScope.search_brand_select = 0;
+        if (($rootScope.search_brand_select == undefined || $rootScope.search_brand_select == "")){
+            $rootScope.search_brand_select = "0";
         }
         var search= [];
 
@@ -74,7 +78,13 @@ app.factory('services_search', ['services', '$rootScope', function (services, $r
         localStorage.removeItem('order');
 
         localStorage.setItem('search', JSON.stringify(search));
-        location.href = "#/shop";
+        //Mejora para que deoendiendo si esta en el home o en el shop refreque la pagina  o redireccine.
+        let path = $location.path();
+        if (path == "/home") {
+            $location.path("/shop"); 
+        }else {
+            $window.location.reload();
+        }
     }
 
 
