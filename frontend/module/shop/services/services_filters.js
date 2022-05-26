@@ -54,8 +54,13 @@ app.factory('services_filters', ['services', '$rootScope', '$window', function (
     function select_filters(func_type, atributos) {
         services.post('shop', func_type, atributos)
             .then(function (response) {
-                console.log(response);
-                $scope.select_cars = response;
+                if (response == "") {
+                    $scope.show_not_cars = true;
+                }else {
+                    $scope.show_not_cars = false;
+                    $scope.show_all_shop = true;
+                    $scope.select_cars = response;
+                }
             }, function (error) {
                 console.log(error);
             });

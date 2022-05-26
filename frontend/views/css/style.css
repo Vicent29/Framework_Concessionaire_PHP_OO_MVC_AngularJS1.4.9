@@ -396,6 +396,8 @@ small {
     background-color: #000;
     color: #808080;
     text-align: center;
+    min-height: 200px;
+    max-height: 300px;
 
 }
 #footer-sec svg {
@@ -682,6 +684,7 @@ a:link {
 }
 
 .list_product_details {
+    width: 100%;
     max-height: max-content;
     min-height: 630px;
     display: flex;
@@ -741,12 +744,13 @@ a:link {
 }
 
 #price_details {
-    margin-left: 0%;
+    margin-left: -2%;
     color: black;
     font-weight: bold;
     border: 1px solid rgba(#898989, .2);
     size: 10px;
     font-size: 2em;
+    display: inline-block;
 }
 
 #price_details:hover {
@@ -1180,7 +1184,7 @@ p#user_info {
 
 /* btn don't books */
 
-.no-results {
+.no-results, .separete_fotter {
     border: none;
     color: black;
     background-color: white;
@@ -1267,6 +1271,7 @@ p#user_info {
 
 .details__heart {
     font-size: 23px;
+    display: inline;
 }
 
 .like_red {
@@ -1386,7 +1391,7 @@ ol.carousel-indicators li {
     margin-left: 1%;
 }
 
-/* CATEGORIES HOME */
-.pos_cat{
-    background-color: #06ad51;
+.no_results img {
+    margin-top: 2%;
+    width: 100%;
 }
