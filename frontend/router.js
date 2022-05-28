@@ -26,7 +26,7 @@ app.config(['$routeProvider', function ($routeProvider) {
             controller: "ctrl_shop",
             resolve: {
                 all_cars: function (services) {
-                    return services.post('shop', 'all_cars',{'offset':0, 'limit':20});
+                    return services.post('shop', 'all_cars');
                 } 
             }
         }).when("/details/:id", {

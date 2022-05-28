@@ -49,12 +49,12 @@
                         </div>
                         <div class="orderby_content">
                             <p>ORDER BY:</p>
-                            <select id="orderby">
-                                <option value="0">Order by...</option>
+                            <select id="orderby" ng-model="$root.select_orderby">    
+                                <option value = "" selected disabled hidden>Order by...</option>
                                 <option value="price">Price</option>
                                 <option value="km">KM</option>
                             </select>
-                            <input type="button" value="ORDER" id="order-btn" class="order-btn" />
+                            <input type="button" value="ORDER" class="order-btn"  ng-click="order_btn(select_orderby)"/>
                         </div>
                     </div>
                 </div>
@@ -80,13 +80,11 @@
                             <p>Up-to-date maintenance and revisions</p>
                             <ul>
                                 <li> <i id='col-ico' class='fa-solid fa-road fa-xl'></i>&nbsp;&nbsp; {{car.Km}} KM</li>
-                                <li> <i id='col-ico' class='fa-solid fa-person fa-xl'></i>&nbsp;&nbsp;&nbsp;
-                                    {{car.gear_shift}}</li>
+                                <li> <i id='col-ico' class='fa-solid fa-person fa-xl'></i>&nbsp;&nbsp;&nbsp;{{car.gear_shift}}</li>
                                 <li> <i id='col-ico' class='fa-solid fa-palette fa-xl'></i>&nbsp; {{car.color}}</li>
                             </ul>
                             <div class='buttons'>
-                                <button class='more_info_list button add' ng-click="redirect_details()">More
-                                    Info</button>
+                                <button class='more_info_list button add' ng-click="redirect_details()">More Info</button>
                                 <button class='button buy'>Buy</button>
                                 <span class='button' id='price'>{{car.price}} €</span>
                             </div>

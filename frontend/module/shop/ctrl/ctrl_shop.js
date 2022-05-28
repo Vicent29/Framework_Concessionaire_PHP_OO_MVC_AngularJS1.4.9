@@ -4,6 +4,7 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
     $scope.show_cars_related = false;
     $scope.show_all_shop = true;
     
+    
     if ($route.current.params.id) {
         $scope.show_not_cars = false;
         $scope.show_all_shop = false;
@@ -26,13 +27,18 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
         // highlightSearch();
     } else if (localStorage.getItem('order')) {
         services_filters.load_orderby_filter();
-        // highlightOrderBy();
+        $rootScope.select_orderby = localStorage.getItem('order');
     } else if (localStorage.getItem('redirect_like')) {
         services_shop.redirect_login_like();
     } else {
         $scope.show_all_shop = true;
         $rootScope.select_cars = all_cars;
         services_map.load_map(all_cars, "list");
+    }
+
+    $rootScope.order_btn = function (select_orderby) {
+        services_filters.save_orderby(select_orderby);
+        $window.location.reload();
     }
 
     $scope.remove_filters_shop = function () {

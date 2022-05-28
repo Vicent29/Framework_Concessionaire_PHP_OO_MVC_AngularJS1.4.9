@@ -14,8 +14,8 @@
             return self::$_instance;
         }
 
-        public function get_all_cars($args) {
-            return $this -> bll -> get_all_cars_BLL($args);
+        public function get_all_cars() {
+            return $this -> bll -> get_all_cars_BLL();
         }
 
         public function get_details_car($args) {
@@ -40,22 +40,6 @@
 
         public function get_order_filter($args) {
             return $this -> bll -> get_order_filter_BLL($args);
-        }
-
-        public function get_count_cars_pag() {
-            return $this -> bll -> get_count_cars_pag_BLL();
-        }
-
-        public function get_count_cars_home_filters($args) {
-            return $this -> bll -> get_count_cars_home_filters_BLL($args);
-        }
-
-        public function get_count_order_filter($args) {
-            return $this -> bll -> get_count_order_filter_BLL($args);
-        }
-
-        public function get_count_cars_related($args) {
-            return $this -> bll -> get_count_cars_related_BLL($args);
         }
 
         public function get_cars_related($args) {

@@ -15,25 +15,27 @@ app.factory('services_map', ['services', '$rootScope', '$window', function (serv
             map.addControl(new mapboxgl.NavigationControl());
             map.addControl(new mapboxgl.FullscreenControl());
 
-            for (let i = 0; i < data.length; i++) {
-                popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-                    "<div class='more_info_popup'>" +
-                    "<img src= /Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/" + data[i].img_car + "></img>" +
-                    "<h4><b>" + data[i].id_brand + " " + data[i].name_model + "</b></h4>" +
-                    "<table id='table-shop'> <tr>" +
-                    "<td> <i class='fa-solid fa-location-dot fa-xl'></i> &nbsp;" + data[i].city + "</td>" +
-                    "<td> <i id='col-ico' class='fa-solid fa-road fa-xl'></i> &nbsp;" + data[i].Km + " KM" + "</td>  </tr>" +
-                    "<td> <i id='col-ico' class='fa-solid fa-palette fa-xl'></i> &nbsp;" + data[i].color + "</td>" +
-                    "<td ><i class='fa-solid fa-coins fa-xl'></i> &nbsp;" + data[i].price + " €" + "</td></tr>" +
-                    "</table>" +
-                    "<button class='more_info_list'><a href='#/details/" + data[i].id_car + "''>MORE INFO</a></button>" +
-                    "<div/>"
-                );
+            if (data != "null") {
+                for (let i = 0; i < data.length; i++) {
+                    popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+                        "<div class='more_info_popup'>" +
+                        "<img src= /Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/" + data[i].img_car + "></img>" +
+                        "<h4><b>" + data[i].id_brand + " " + data[i].name_model + "</b></h4>" +
+                        "<table id='table-shop'> <tr>" +
+                        "<td> <i class='fa-solid fa-location-dot fa-xl'></i> &nbsp;" + data[i].city + "</td>" +
+                        "<td> <i id='col-ico' class='fa-solid fa-road fa-xl'></i> &nbsp;" + data[i].Km + " KM" + "</td>  </tr>" +
+                        "<td> <i id='col-ico' class='fa-solid fa-palette fa-xl'></i> &nbsp;" + data[i].color + "</td>" +
+                        "<td ><i class='fa-solid fa-coins fa-xl'></i> &nbsp;" + data[i].price + " €" + "</td></tr>" +
+                        "</table>" +
+                        "<button class='more_info_list'><a href='#/details/" + data[i].id_car + "''>MORE INFO</a></button>" +
+                        "<div/>"
+                    );
 
-                marker = new mapboxgl.Marker()
-                    .setPopup(popup)
-                    .setLngLat([data[i].lon, data[i].lat])
-                    .addTo(map);
+                    marker = new mapboxgl.Marker()
+                        .setPopup(popup)
+                        .setLngLat([data[i].lon, data[i].lat])
+                        .addTo(map);
+                }
             }
         } else if (opc == "details") {
 

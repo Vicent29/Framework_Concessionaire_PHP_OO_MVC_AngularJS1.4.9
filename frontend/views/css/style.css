@@ -734,14 +734,14 @@ a:link {
     color: black;
 }
 
-#order-btn {
+.order-btn {
     border: 1px #5e5e5e solid;
     color: #000;
-    font-size: 17px;
+    font-size: 20px;
     margin: 0% 2% 2% 2%;
 }
 
-#order-btn:hover {
+.order-btn:hover {
     font-size: 17px;
     margin: 0% 2% 2% 2%;
     border: 3px solid #58f7ad;

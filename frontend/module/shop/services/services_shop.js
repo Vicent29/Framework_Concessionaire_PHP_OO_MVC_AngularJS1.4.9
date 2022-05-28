@@ -13,6 +13,8 @@ app.factory('services_shop', ['services', '$rootScope', 'services_map', function
                 $rootScope.info_details = response[0][0];
                 services_map.load_map($rootScope.info_details, "details");
                 cars_releted(response[0][0].motor);
+                count_more_visit(id_car);
+
             }else {
                 console.log("error with details" + error);
             }
@@ -29,6 +31,10 @@ app.factory('services_shop', ['services', '$rootScope', 'services_map', function
             console.log("error cars related" + error);
         });
 
+    }
+
+    function count_more_visit(id_car){
+        services.post('shop', 'count_more_visit', {'id_car':id_car});
     }
     
     function redirect_login_like() {
