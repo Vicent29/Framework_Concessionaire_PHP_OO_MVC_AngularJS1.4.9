@@ -4,7 +4,6 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
     $scope.show_cars_related = false;
     $scope.show_all_shop = true;
     
-    
     if ($route.current.params.id) {
         $scope.show_not_cars = false;
         $scope.show_all_shop = false;
@@ -24,7 +23,7 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
         services_filters.load_motor_filter();
     } else if (localStorage.getItem('search')) {
         services_filters.load_search_filter();
-        // highlightSearch();
+        services_filters.highlightSearch();
     } else if (localStorage.getItem('order')) {
         services_filters.load_orderby_filter();
         $rootScope.select_orderby = localStorage.getItem('order');
@@ -49,5 +48,9 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
     $rootScope.redirect_details = function () {
         location.href = "#/details/" + this.car.id_car; 
     }
+
+    // function highlightSearch(){
+    //     $rootScope.selected_type_car = "A";
+    // }
 
 });//end controller
