@@ -29,6 +29,12 @@ app.config(['$routeProvider', function ($routeProvider) {
                     return services.post('shop', 'all_cars',{'offset':0, 'limit':20});
                 } 
             }
+        }).when("/details/:id", {
+            templateUrl: "frontend/module/shop/view/shop.html",
+            controller: "ctrl_shop",
+            resolve: {
+                all_cars: function () {}
+            }
         }).otherwise("/home", {
             templateUrl: "frontend/module/home/view/home.html",
             controller: "ctrl_home",
@@ -49,7 +55,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         });
 }]);
 
-app.run(function($rootScope, services, services_search){
+app.run(function($rootScope, $window, services, services_search){
     services_search.search_type_motor();
     services_search.search_brand();
 

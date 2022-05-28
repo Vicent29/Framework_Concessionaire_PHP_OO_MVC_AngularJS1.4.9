@@ -96,67 +96,60 @@
 
             </div>
         </div>
-        <div id='div_map_shop' style="border: 1px black solid;"></div>
+        <div id='div_map_shop'></div>
         <button class="separete_fotter"></button></br>
     </div>
 
     <!-- details-car -->
     <div id="details-shop" ng-show="show_car_details">
-        <div class="date_img" id="container-date-img">
-            <carousel interval="myInterval" no-wrap="noWrapSlides">
+        <carousel interval="myInterval" no-wrap="noWrapSlides">
+            <slide ng-repeat="img in imgs_details">
+                <img class="imgs_cars_details"
+                    src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{img.img_cars}}">
+            </slide>
+        </carousel>
 
-                <slide ng-repeat="img in imgs_details">
-                    <img class="imgs_brands"
-                        src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{img.img_cars}}">
-                </slide>
-            </carousel>
-        </div>
-        <div class="date_car" id="container-date-img">
-            <div class='list_product_details'>
-                <div class='product-info_details'>
-                    <div class='product-content_details'>
-                        <h1><b> {{info_details.id_brand}} {{info_details.name_model}}</b></h1>
-                        <hr class=hr-shop>
-                        <table id='table-shop'>
-                            <tr>
-                                <td> <i id='col-ico' class='fa-solid fa-road fa-2xl'></i> &nbsp; {{info_details.Km}} KM
-                                </td>
-                                <td> <i id='col-ico' class='fa-solid fa-person fa-2xl'></i> &nbsp;
-                                    {{info_details.gear_shift}} </td>
-                            </tr>
-                            <td> <i id='col-ico' class='fa-solid fa-car fa-2xl'></i> &nbsp; {{info_details.name_cat}}
-                            </td>
-                            <td> <i id='col-ico' class='fa-solid fa-door-open fa-2xl'></i> &nbsp;
-                                {{info_details.num_doors}}</td>
-                            </tr>
-                            <td> <i id='col-ico' class='fa-solid fa-gas-pump fa-2xl'></i> &nbsp;
-                                {{info_details.name_tmotor}}</td>
-                            <td> <i id='col-ico' class='fa-solid fa-calendar-days fa-2xl'></i> &nbsp;
-                                {{info_details.matricualtion_date}}</td>
-                            </tr>
-                            <td> <i id='col-ico' class='fa-solid fa-palette fa-2xl'></i> &nbsp;{{info_details.color}}
-                            </td>
-                            <td> <i class='fa-solid fa-location-dot fa-2xl'></i> &nbsp;{{info_details.city}}</td>
-                            </tr>
-                        </table>
-                        <hr class=hr-shop>
-                        <h3><b>More Information:</b></h3>
-                        <p>This vehicle has a 2-year warranty and reviews during the first 6 months from its
-                            acquisition.</p>
-                        <div class='buttons_details'>
-                            <a class='button add' href='#'>Add to Cart</a>
-                            <a class='button buy' href='#'>Buy</a>
-                            <span class='button' id='price_details'> {{info_details.price}} <i
-                                    class='fa-solid fa-euro-sign'></i> </span>
-                            <a class='details__heart' id="info_details.id_car"><i id=info_details.id_car
-                                    class='fa-solid fa-heart fa-lg'></i></a>
-                        </div>
-                    </div>
-                </div>
+        <div class='product-content_details'>
+            <h1><b> {{info_details.id_brand}} {{info_details.name_model}}</b></h1>
+            <hr class=hr-shop>
+            <table id='table-shop'>
+                <tr>
+                    <td> <i id='col-ico' class='fa-solid fa-road fa-2xl'></i> &nbsp; {{info_details.Km}} KM
+                    </td>
+                    <td> <i id='col-ico' class='fa-solid fa-person fa-2xl'></i> &nbsp;
+                        {{info_details.gear_shift}} </td>
+                </tr>
+                <td> <i id='col-ico' class='fa-solid fa-car fa-2xl'></i> &nbsp; {{info_details.name_cat}}
+                </td>
+                <td> <i id='col-ico' class='fa-solid fa-door-open fa-2xl'></i> &nbsp;
+                    {{info_details.num_doors}}</td>
+                </tr>
+                <td> <i id='col-ico' class='fa-solid fa-gas-pump fa-2xl'></i> &nbsp;
+                    {{info_details.name_tmotor}}</td>
+                <td> <i id='col-ico' class='fa-solid fa-calendar-days fa-2xl'></i> &nbsp;
+                    {{info_details.matricualtion_date}}</td>
+                </tr>
+                <td> <i id='col-ico' class='fa-solid fa-palette fa-2xl'></i> &nbsp;{{info_details.color}}
+                </td>
+                <td> <i class='fa-solid fa-location-dot fa-2xl'></i> &nbsp;{{info_details.city}}</td>
+                </tr>
+            </table>
+            <hr class=hr-shop>
+            <h3><b>More Information:</b></h3>
+            <p>This vehicle has a 2-year warranty and reviews during the first 6 months from its
+                acquisition.</p>
+            <div class='buttons_details'>
+                <a class='button add' href='#'>Add to Cart</a>
+                <a class='button buy' href='#'>Buy</a>
+                <span class='button' id='price_details'> {{info_details.price}} <i class='fa-solid fa-euro-sign'></i>
+                </span>
+                <a class='details__heart' id="info_details.id_car"><i id=info_details.id_car
+                        class='fa-solid fa-heart fa-lg'></i></a>
             </div>
         </div>
     </div>
-    <div id='div_map_details' ng-show="show_map_details" style="border: 1px black solid;"></div>
+
+    <div id='div_map_details' ng-show="show_map_details"></div>
 
 
     <!-- div_spiner -->

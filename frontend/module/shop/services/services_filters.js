@@ -1,4 +1,4 @@
-app.factory('services_filters', ['services', '$rootScope', '$window', function (services, $scope, $rootScope, $window) {
+app.factory('services_filters', ['services',  'services_map', '$rootScope', '$window', function (services,services_map, $scope, $rootScope, $window) {
     let service = { shop_filters: shop_filters, load_brand_filter: load_brand_filter, load_category_filter: load_category_filter, load_motor_filter: load_motor_filter, load_search_filter: load_search_filter, load_orderby_filter: load_orderby_filter, remove_all_filters: remove_all_filters };
     return service;
 
@@ -31,7 +31,7 @@ app.factory('services_filters', ['services', '$rootScope', '$window', function (
         var array_tmotor = JSON.parse(localStorage.getItem('type_motor_filter'));
         var motor = array_tmotor[0].name_tmotor[0];
         const atributos = [offset, limit, opc, motor];
-        select_filters("home_filter",atributos);
+        select_filters("home_filter", atributos);
     }
 
 
@@ -42,8 +42,8 @@ app.factory('services_filters', ['services', '$rootScope', '$window', function (
         var brand_car = search[2]['brand_car'];
         var city = search[0]['city'];
         var opc_sql = "select";
-        const atributos= [offset, limit, type_car, brand_car, city, opc_sql];
-        select_filters("operations_search_filter",atributos);
+        const atributos = [offset, limit, type_car, brand_car, city, opc_sql];
+        select_filters("operations_search_filter", atributos);
     }
 
     function load_orderby_filter(offset = "0", limit = "20") {
@@ -56,10 +56,11 @@ app.factory('services_filters', ['services', '$rootScope', '$window', function (
             .then(function (response) {
                 if (response == "") {
                     $scope.show_not_cars = true;
-                }else {
+                } else {
                     $scope.show_not_cars = false;
                     $scope.show_all_shop = true;
                     $scope.select_cars = response;
+                    services_map.load_map(response, "list");
                 }
             }, function (error) {
                 console.log(error);

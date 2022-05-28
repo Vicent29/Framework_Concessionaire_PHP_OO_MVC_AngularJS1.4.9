@@ -1,4 +1,4 @@
-app.factory('services_shop', ['services', '$rootScope', function (services, $rootScope) {
+app.factory('services_shop', ['services', '$rootScope', 'services_map', function (services, $rootScope, services_map) {
     let service = {load_details:load_details, redirect_login_like:redirect_login_like };
     return service;
 
@@ -10,8 +10,8 @@ app.factory('services_shop', ['services', '$rootScope', function (services, $roo
         .then(function (response) {
             if (response) {
                 $rootScope.imgs_details = response[1][0];
-                console.log($rootScope.imgs_details);
                 $rootScope.info_details = response[0][0];
+                services_map.load_map($rootScope.info_details, "details");
             }else {
                 console.log("error with details");
             }
