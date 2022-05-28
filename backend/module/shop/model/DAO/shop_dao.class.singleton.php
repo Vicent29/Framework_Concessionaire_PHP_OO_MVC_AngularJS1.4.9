@@ -239,8 +239,8 @@
             return $db->listar($stmt);
         }
 
-        public function select_cars_related($db, $type, $loaded, $items) {
-            $sql = "SELECT * FROM car c, model m WHERE c.model = m.id_model AND c.motor = '$type' LIMIT $loaded, $items";
+        public function select_cars_related($db, $type) {
+            $sql = "SELECT * FROM car c, model m WHERE c.model = m.id_model AND c.motor = '$type'";
             $stmt = $db->ejecutar($sql);
             return $db->listar($stmt);
         }

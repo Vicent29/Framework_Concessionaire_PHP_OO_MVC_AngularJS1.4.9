@@ -49,7 +49,7 @@
         }
 
         function cars_related() {
-            echo json_encode(common::load_model('shop_model', 'get_cars_related', [$_POST['type'],$_POST['loaded'],$_POST['items']]));
+            echo json_encode(common::load_model('shop_model', 'get_cars_related', [$_POST['type']]));
         }
 
         function control_likes() {

@@ -1,6 +1,7 @@
 app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $location, all_cars, services_shop, services_filters, services_map) {
     $scope.show_car_details = false;
     $scope.show_map_details = false;
+    $scope.show_cars_related = false;
     $scope.show_all_shop = true;
     
     if ($route.current.params.id) {
@@ -8,6 +9,7 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
         $scope.show_all_shop = false;
         $scope.show_car_details = true;
         $scope.show_map_details = true;
+        $scope.show_cars_related = true;
         let id = $location.path().split('/')[2];
         services_shop.load_details(id);
     }else if (localStorage.getItem('filters') ) {

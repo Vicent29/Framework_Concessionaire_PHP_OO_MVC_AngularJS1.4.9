@@ -237,7 +237,7 @@
 		}
 
 		public function get_cars_related_BLL($args) {
-			return $this -> dao -> select_cars_related($this->db,$args[0],$args[1],$args[2]);
+			return $this -> dao -> select_cars_related($this->db,$args[0]);
 		}
 
 		public function get_control_likes_BLL($args) {

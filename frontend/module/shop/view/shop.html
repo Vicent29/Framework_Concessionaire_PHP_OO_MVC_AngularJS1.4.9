@@ -160,7 +160,25 @@
     </div>
 
     <!-- div coches relacioandos -->
-    <div class="results"></div>
+    <div class="results" ng-show="show_cars_related">
+        <div class="title_content">
+            <h2 class="cat">Cars related</h2>
+            <div class="more_info_list" ng-repeat="car in info_cars_related">
+                <div ng-click="redirect_details()">
+                    <li class='portfolio-item'>
+                        <div class='item-main'>
+                            <div class='portfolio-image'>
+                                <img src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{car.img_car}}"
+                                    alt='imagen car'>
+                            </div>
+                            <h5>{{car.id_brand}} {{car.name_model}}</h5>
+                        </div>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="separete_fotter"></button></br>
 
     <!-- paginacio -->
     <div id="pagination"></div>
