@@ -1,5 +1,5 @@
 app.factory('services_filters', ['services', 'services_map', '$rootScope', function (services, services_map, $scope, $rootScope) {
-    let service = { save_shop_filters: save_shop_filters, load_shop_filters: load_shop_filters, load_brand_filter: load_brand_filter, load_category_filter: load_category_filter, load_motor_filter: load_motor_filter, load_search_filter: load_search_filter, load_orderby_filter: load_orderby_filter, remove_all_filters: remove_all_filters, save_orderby: save_orderby, highlightSearch: highlightSearch };
+    let service = { save_shop_filters: save_shop_filters, highlightFilters: highlightFilters, load_shop_filters: load_shop_filters, load_brand_filter: load_brand_filter, load_category_filter: load_category_filter, load_motor_filter: load_motor_filter, load_search_filter: load_search_filter, load_orderby_filter: load_orderby_filter, remove_all_filters: remove_all_filters, save_orderby: save_orderby, highlightSearch: highlightSearch };
     return service;
 
     function save_shop_filters(colors = 0, door = 0, categoria = 0) {
@@ -55,9 +55,27 @@ app.factory('services_filters', ['services', 'services_map', '$rootScope', funct
         }
     }
 
+    function highlightFilters() {
+        var filters = JSON.parse(localStorage.getItem('filters'));
+        var color = filters[0]['Color'];
+        var doors = filters[1]['Num_doors'];
+        var category = filters[2]['category'];
+        for (row in color) {
+            $scope[color[row]] = true;
+        }
+        if (doors == "3"){
+          var  door= "tres";
+        }else if(doors == "5") {
+           var door= "cinco";
+        }
+        $scope[door] = true;
+        $scope.shop_cat_selected = category;
+    }
+
+
     function load_shop_filters() {
         var filters = JSON.parse(localStorage.getItem('filters'));
-        var color= filters[0]['Color'];
+        var color = filters[0]['Color'];
         var doors = filters[1]['Num_doors'];
         var category = filters[2]['category'];
         // Mejora para que en caso de que no aplique ningun filtro salgan todos los coches

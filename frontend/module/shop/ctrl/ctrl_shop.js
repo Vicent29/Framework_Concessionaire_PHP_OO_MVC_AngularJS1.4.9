@@ -15,7 +15,7 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
         services_shop.load_details(id);
     }else if (localStorage.getItem('filters') ) {
         services_filters.load_shop_filters();
-        // highlightFilters();
+        services_filters.highlightFilters();
     } else if (localStorage.getItem('brand_filter')) {
         services_filters.load_brand_filter();
     } else if (localStorage.getItem('category_filter')) {
