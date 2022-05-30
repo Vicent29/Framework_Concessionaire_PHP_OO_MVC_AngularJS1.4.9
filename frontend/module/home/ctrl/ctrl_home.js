@@ -27,7 +27,6 @@ app.controller('ctrl_home', function ($scope, $rootScope, $window, brands, categ
         var second_scroll = books_array;
         $scope.books_home = books_array.splice(0,3);
     $scope.loadMore_books = function() {
-        console.log($rootScope.count);
        $rootScope.count++;
          if ($rootScope.count == 50)  {
             $scope.books_home = one_scroll.splice(0,6);

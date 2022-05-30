@@ -26,7 +26,7 @@ app.factory('services_shop', ['services', '$rootScope', 'services_map', function
     function cars_releted(type_car){
         services.post('shop', 'cars_related', {'type': type_car})
         .then(function (response) {
-            $rootScope.prueba = response;
+            localStorage.setItem('cars_releted', JSON.stringify(response));
             $rootScope.all_cars_releted = response;
             if  ($rootScope.all_cars_releted.length <= 3 ) {
                $rootScope.show_btn_car_releted = false;
@@ -34,7 +34,6 @@ app.factory('services_shop', ['services', '$rootScope', 'services_map', function
                 $rootScope.show_btn_car_releted = true;
             }
             $rootScope.info_cars_related = $rootScope.all_cars_releted.splice(0,3);
-            console.log($rootScope.all_cars_releted);
         }, function (error) {
             console.log("error cars related" + error);
         });

@@ -4,6 +4,7 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
     $scope.show_cars_related = false;
     $rootScope.show_btn_car_releted = false;
     $scope.show_all_shop = true;
+    localStorage.setItem('num_cars', 3);
     
     if ($route.current.params.id) {
         $scope.show_not_cars = false;
@@ -56,15 +57,17 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
     }
  
     $rootScope.more_cars_related = function () {
-        // console.log($rootScope.prueba);
-        // const num_cars= 3;
-        // if ($rootScope.all_cars_releted.length <= num_cars ) {
-        //     console.log("no hay mas");
-        //     $rootScope.show_btn_car_releted = false;
-        // }else {
-        //     num_cars= num_cars + 3;
-        //     $rootScope.info_cars_related = $rootScope.all_cars_releted.splice(0, num_cars);
-        // }
+        var cars_releted= JSON.parse( localStorage.getItem('cars_releted'));
+        console.log(cars_releted.length +" <= "+ localStorage.getItem('num_cars'));
+        
+        localStorage.setItem('num_cars', localStorage.getItem('num_cars') + 3);
+
+        if (cars_releted.length <= localStorage.getItem('num_cars')) {
+            $rootScope.show_btn_car_releted = false;
+        }else {
+            $rootScope.show_btn_car_releted = true;
+        } 
+        $rootScope.info_cars_related = cars_releted.splice(0, localStorage.getItem('num_cars'));
     }
 
 });//end controller
