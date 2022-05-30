@@ -1,9 +1,72 @@
 app.factory('services_filters', ['services', 'services_map', '$rootScope', function (services, services_map, $scope, $rootScope) {
-    let service = { shop_filters: shop_filters, load_brand_filter: load_brand_filter, load_category_filter: load_category_filter, load_motor_filter: load_motor_filter, load_search_filter: load_search_filter, load_orderby_filter: load_orderby_filter, remove_all_filters: remove_all_filters, save_orderby: save_orderby, highlightSearch: highlightSearch };
+    let service = { save_shop_filters: save_shop_filters, load_shop_filters: load_shop_filters, load_brand_filter: load_brand_filter, load_category_filter: load_category_filter, load_motor_filter: load_motor_filter, load_search_filter: load_search_filter, load_orderby_filter: load_orderby_filter, remove_all_filters: remove_all_filters, save_orderby: save_orderby, highlightSearch: highlightSearch };
     return service;
 
-    function shop_filters() {
-        console.log("Shop filtros services");
+    function save_shop_filters(colors = 0, door = 0, categoria = 0) {
+        remove_all_filters();
+        var color = [];
+        var doors = [];
+        var category = [];
+        var filters = [];
+        if (colors != 0) {
+            if (colors['White'] != undefined && colors['White'] == true) {
+                color.push('White');
+            }
+            if (colors['Blue'] != undefined && colors['Blue'] == true) {
+                color.push('Blue');
+            }
+            if (colors['Black'] != undefined && colors['Black'] == true) {
+                color.push('Black');
+            }
+            if (colors['Red'] != undefined && colors['Red'] == true) {
+                color.push('Red');
+            }
+            if (colors['Grey'] != undefined && colors['Grey'] == true) {
+                color.push('Grey');
+            }
+            if (colors['Orange'] != undefined && colors['Orange'] == true) {
+                color.push('Ornage');
+            }
+            if (colors['Brown'] != undefined && colors['Brown'] == true) {
+                color.push('Brown');
+            }
+            filters.push({ "Color": color });
+        } else {
+            filters.push({ "Color": '*' });
+        }
+        if (door != 0) {
+            if (door['tres'] != undefined && door['tres'] == true) {
+                filters.push({ "Num_doors": '3' });
+            }
+            if (door['cinco'] != undefined && door['cinco'] == true) {
+                filters.push({ "Num_doors": '5' });
+            }
+        } else {
+            filters.push({ "Num_doors": '*' });
+        }
+        if (categoria != 0) {
+            filters.push({ "category": categoria });
+        } else {
+            filters.push({ "category": '*' });
+        }
+        if (filters.length != 0) {
+            localStorage.setItem('filters', JSON.stringify(filters));
+
+        }
+    }
+
+    function load_shop_filters() {
+        var filters = JSON.parse(localStorage.getItem('filters'));
+        var color= filters[0]['Color'];
+        var doors = filters[1]['Num_doors'];
+        var category = filters[2]['category'];
+        // Mejora para que en caso de que no aplique ningun filtro salgan todos los coches
+        if (color == "*" && doors == "*" && category == "*") {
+            remove_all_filters();
+        } else {
+            const atributos = [color, doors, category];
+            select_filters("operations_filters_shop", atributos);
+        }
     }
 
     function load_brand_filter() {

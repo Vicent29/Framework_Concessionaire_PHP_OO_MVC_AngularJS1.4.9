@@ -2,7 +2,9 @@
 <div class="carrusel_home">
     <carousel interval="myInterval" no-wrap="noWrapSlides">
         <slide ng-repeat="brand in brands_home">
-            <img class="imgs_brands" src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{brand.img_brand}}" ng-click="click_carrusel_brand()" style="margin:auto;">
+            <img class="imgs_brands"
+                src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/{{brand.img_brand}}"
+                ng-click="click_carrusel_brand()" style="margin:auto;">
         </slide>
     </carousel>
 </div>
@@ -65,21 +67,25 @@
 <div class="content_appi_books">
     <div id="books_content" class="books_content">
         <h2 class="cat">Books releted</h2>
-        <div id="books_car" class="books_car" ng-repeat="book in books_home">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="panel panel-danger adjust-border-radius">
-                    <div class="title_book panel-heading adjust-border">
-                        <h4>{{book.title}}</h4>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="plan">
-                            <li class="Img_new"><img src="{{book.image}}"></li>
-                            <li><i id="col-ico" class="fa-solid fa-user-large fa-sm"></i>{{book.authors[0]}}</li>
-                            <li><i id="col-ico" class="fa-solid fa-calendar-days fa-sm"></i>{{book.publishDate}}</li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer">
-                        <a href="{{book.link}}" target="_blank" class="btn btn-danger btn-block btn-lg adjust-border-radius">MORE INFO</a>
+        <div infinite-scroll='loadMore_books()'>
+            <div id="books_car" class="books_car" ng-repeat="book in books_home">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="panel panel-danger adjust-border-radius">
+                        <div class="title_book panel-heading adjust-border">
+                            <h4>{{book.title}}</h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="plan">
+                                <li class="Img_new"><img src="{{book.image}}"></li>
+                                <li><i id="col-ico" class="fa-solid fa-user-large fa-sm"></i>{{book.authors[0]}}</li>
+                                <li><i id="col-ico" class="fa-solid fa-calendar-days fa-sm"></i>{{book.publishDate}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer">
+                            <a href="{{book.link}}" target="_blank"
+                                class="btn btn-danger btn-block btn-lg adjust-border-radius">MORE INFO</a>
+                        </div>
                     </div>
                 </div>
             </div>

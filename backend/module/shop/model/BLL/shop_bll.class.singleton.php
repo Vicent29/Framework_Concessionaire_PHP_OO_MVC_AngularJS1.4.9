@@ -45,7 +45,7 @@ class shop_bll
 		$doors = $args[1];
 		$category = $args[2];
 
-		//Guardaremos los filtros pulsados dependoendo de si estan llenos o no
+		//Guardaremos los filtros pulsados dependiendo de si estan llenos o no
 		$filtros = "";
 
 		if ($colors != '*' && $doors == '*' && $category == '*') {
@@ -62,7 +62,7 @@ class shop_bll
 					$filtros .= ")";
 				}
 			}
-		} else if ($colors == '*' && $doors != '*' && $category == '*') {
+		}else if ($colors == '*' && $doors != '*' && $category == '*') {
 			$filtros = "num_doors = '" . $doors . "'";
 		} else if ($colors == '*' && $doors == '*' && $category != '*') {
 			$filtros = "category = '" . $category . "'";

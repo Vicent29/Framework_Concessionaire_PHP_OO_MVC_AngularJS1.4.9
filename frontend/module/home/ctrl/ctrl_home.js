@@ -23,7 +23,19 @@ app.controller('ctrl_home', function ($scope, $window, brands, categorys, type_m
                 books_array.push(data_books);
             }
         });
-        $scope.books_home = books_array;
+        // $scope.books_home = books_array;
+        $scope.books_home = books_array.splice(0,3);
+    // $scope.loadMore_books = function() {
+    //         // var last =  $scope.books_home[$scope.books_home.length - 1];
+    //         // for(var i = 1; i <= 9; i++) {
+    //         //   $scope.books_home.push(last + i);
+    //         // }
+
+    //         $rootScope.car_page++;
+    //         $rootScope.cars_group = $rootScope.cars_root.slice(0, $rootScope.car_page * 1);
+    //         console.log("scroll echo");
+    // }
+
 
     //REDIRECTS al SHOP
     $scope.click_carrusel_brand = function() {

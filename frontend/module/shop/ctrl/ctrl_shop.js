@@ -2,6 +2,7 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
     $scope.show_car_details = false;
     $scope.show_map_details = false;
     $scope.show_cars_related = false;
+    $rootScope.show_btn_car_releted = false;
     $scope.show_all_shop = true;
     
     if ($route.current.params.id) {
@@ -13,7 +14,7 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
         let id = $location.path().split('/')[2];
         services_shop.load_details(id);
     }else if (localStorage.getItem('filters') ) {
-        services_filters.shop_filters();
+        services_filters.load_shop_filters();
         // highlightFilters();
     } else if (localStorage.getItem('brand_filter')) {
         services_filters.load_brand_filter();
@@ -35,6 +36,11 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
         services_map.load_map(all_cars, "list");
     }
 
+    $rootScope. search_filters_home = function (color, door, catgoria) {
+        services_filters.save_shop_filters(color, door, catgoria);
+        $window.location.reload();
+    }
+
     $rootScope.order_btn = function (select_orderby) {
         services_filters.save_orderby(select_orderby);
         $window.location.reload();
@@ -48,9 +54,17 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
     $rootScope.redirect_details = function () {
         location.href = "#/details/" + this.car.id_car; 
     }
-
-    // function highlightSearch(){
-    //     $rootScope.selected_type_car = "A";
-    // }
+ 
+    $rootScope.more_cars_related = function () {
+        // console.log($rootScope.prueba);
+        // const num_cars= 3;
+        // if ($rootScope.all_cars_releted.length <= num_cars ) {
+        //     console.log("no hay mas");
+        //     $rootScope.show_btn_car_releted = false;
+        // }else {
+        //     num_cars= num_cars + 3;
+        //     $rootScope.info_cars_related = $rootScope.all_cars_releted.splice(0, num_cars);
+        // }
+    }
 
 });//end controller
