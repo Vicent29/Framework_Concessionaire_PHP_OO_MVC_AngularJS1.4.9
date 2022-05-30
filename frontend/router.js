@@ -1,4 +1,4 @@
-var app = angular.module('Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9', ['ngRoute', 'toastr', 'ui.bootstrap']);
+var app = angular.module('Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9', ['ngRoute', 'toastr', 'ui.bootstrap', 'infinite-scroll']);
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when("/contact", {
@@ -49,13 +49,14 @@ app.config(['$routeProvider', function ($routeProvider) {
                     return services.post('home', 'type');
                 },
                 books: function (services) {
-                    return services.get_api('https://www.googleapis.com/books/v1/volumes?q=electric%20cars&maxResults=20');
+                    return services.get_api('https://www.googleapis.com/books/v1/volumes?q=electric%20cars&maxResults=40');
                 }
             }
         });
 }]);
 
 app.run(function($rootScope, $window, services, services_search){
+    $rootScope.count = 0;
     services_search.search_type_motor();
     services_search.search_brand();
 

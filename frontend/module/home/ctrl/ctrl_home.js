@@ -1,4 +1,4 @@
-app.controller('ctrl_home', function ($scope, $window, brands, categorys, type_motor, books) {
+app.controller('ctrl_home', function ($scope, $rootScope, $window, brands, categorys, type_motor, books) {
     // CARRUSEL
     let total = brands.length;
     $scope.myInterval = 3000;
@@ -23,18 +23,18 @@ app.controller('ctrl_home', function ($scope, $window, brands, categorys, type_m
                 books_array.push(data_books);
             }
         });
-        // $scope.books_home = books_array;
+        var one_scroll = books_array;
+        var second_scroll = books_array;
         $scope.books_home = books_array.splice(0,3);
-    // $scope.loadMore_books = function() {
-    //         // var last =  $scope.books_home[$scope.books_home.length - 1];
-    //         // for(var i = 1; i <= 9; i++) {
-    //         //   $scope.books_home.push(last + i);
-    //         // }
-
-    //         $rootScope.car_page++;
-    //         $rootScope.cars_group = $rootScope.cars_root.slice(0, $rootScope.car_page * 1);
-    //         console.log("scroll echo");
-    // }
+    $scope.loadMore_books = function() {
+        console.log($rootScope.count);
+       $rootScope.count++;
+         if ($rootScope.count == 50)  {
+            $scope.books_home = one_scroll.splice(0,6);
+         } else if($rootScope.count == 100) {
+            $scope.books_home = second_scroll.splice(0,9);
+         }
+    }
 
 
     //REDIRECTS al SHOP
