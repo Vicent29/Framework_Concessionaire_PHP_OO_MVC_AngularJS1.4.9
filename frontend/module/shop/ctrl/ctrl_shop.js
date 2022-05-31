@@ -1,14 +1,17 @@
-app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $location, all_cars, services_shop, services_filters, services_map) {
+app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $location, all_cars, services_shop, services_filters, services_map, services_pagination, toastr) {
     $scope.show_car_details = false;
     $scope.show_map_details = false;
     $scope.show_cars_related = false;
     $rootScope.show_btn_car_releted = false;
     $scope.show_all_shop = true;
+    $scope.show_pagination = true;
+
     localStorage.setItem('num_cars', 3);
     
     if ($route.current.params.id) {
         $scope.show_not_cars = false;
         $scope.show_all_shop = false;
+        $scope.show_pagination = false;
         $scope.show_car_details = true;
         $scope.show_map_details = true;
         $scope.show_cars_related = true;
@@ -33,8 +36,8 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
         services_shop.redirect_login_like();
     } else {
         $scope.show_all_shop = true;
-        $rootScope.select_cars = all_cars;
-        services_map.load_map(all_cars, "list");
+        services_pagination.pagination(all_cars);
+        // services_map.load_map(all_cars, "list");
     }
 
     $rootScope. search_filters_home = function (color, door, catgoria) {
@@ -69,5 +72,18 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
         } 
         $rootScope.info_cars_related = cars_releted.splice(0, localStorage.getItem('num_cars'));
     }
+
+    $rootScope.change_page = function (page) {
+        services_pagination.change_page(page);
+    }
+
+    $rootScope.not_page = function (page) {
+        if(page == "less"){
+            toastr.error("You are on the first page");
+        }else if(page == "more"){
+            toastr.warning("You are on the last page");
+        }
+    }
+
 
 });//end controller

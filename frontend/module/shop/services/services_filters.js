@@ -1,4 +1,4 @@
-app.factory('services_filters', ['services', 'services_map', '$rootScope', function (services, services_map, $scope, $rootScope) {
+app.factory('services_filters', ['services', 'services_map', 'services_pagination', '$rootScope', function (services, services_map, services_pagination, $scope, $rootScope) {
     let service = { save_shop_filters: save_shop_filters, highlightFilters: highlightFilters, load_shop_filters: load_shop_filters, load_brand_filter: load_brand_filter, load_category_filter: load_category_filter, load_motor_filter: load_motor_filter, load_search_filter: load_search_filter, load_orderby_filter: load_orderby_filter, remove_all_filters: remove_all_filters, save_orderby: save_orderby, highlightSearch: highlightSearch };
     return service;
 
@@ -162,8 +162,7 @@ app.factory('services_filters', ['services', 'services_map', '$rootScope', funct
                 } else {
                     $scope.show_not_cars = false;
                     $scope.show_all_shop = true;
-                    $scope.select_cars = response;
-                    services_map.load_map(response, "list");
+                    services_pagination.pagination(response);
                 }
             }, function (error) {
                 console.log(error);

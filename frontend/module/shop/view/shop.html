@@ -12,25 +12,34 @@
                             <hr class=hr-filter>
                             <div class="color">
                                 <h4>COLOR:</h4>
-                                <input type="checkbox" value="White" id="White" class="color" ng-model="color.White" ng-checked="White">White</br>
-                                <input type="checkbox" value="Blue" id="Blue" class="color" ng-model="color.Blue" ng-checked="Blue">Blue</br>
-                                <input type="checkbox" value="Black" id="Black" class="color" ng-model="color.Black" ng-checked="Black">Black</br>
-                                <input type="checkbox" value="Red" id="Red" class="color" ng-model="color.Red" ng-checked="Red">Red</br>
-                                <input type="checkbox" value="Grey" id="Grey" class="color" ng-model="color.Grey" ng-checked="Grey">Grey</br>
-                                <input type="checkbox" value="Orange" id="Orange" class="color" ng-model="color.Orange" ng-checked="Orange">Orange</br>
-                                <input type="checkbox" value="Brown" id="Brown" class="color" ng-model="color.Brown" ng-checked="Brown">Brown</br>
+                                <input type="checkbox" value="White" id="White" class="color" ng-model="color.White"
+                                    ng-checked="White">White</br>
+                                <input type="checkbox" value="Blue" id="Blue" class="color" ng-model="color.Blue"
+                                    ng-checked="Blue">Blue</br>
+                                <input type="checkbox" value="Black" id="Black" class="color" ng-model="color.Black"
+                                    ng-checked="Black">Black</br>
+                                <input type="checkbox" value="Red" id="Red" class="color" ng-model="color.Red"
+                                    ng-checked="Red">Red</br>
+                                <input type="checkbox" value="Grey" id="Grey" class="color" ng-model="color.Grey"
+                                    ng-checked="Grey">Grey</br>
+                                <input type="checkbox" value="Orange" id="Orange" class="color" ng-model="color.Orange"
+                                    ng-checked="Orange">Orange</br>
+                                <input type="checkbox" value="Brown" id="Brown" class="color" ng-model="color.Brown"
+                                    ng-checked="Brown">Brown</br>
                             </div>
                             <hr class=hr-filter>
                             <div class="doors">
                                 <h4>NUMBER DOORS:</h4>
-                                <input type="checkbox" name="doors" value="3" id="3" class="doors" ng-model="door.tres" ng-checked="tres">3</br>
-                                <input type="checkbox" name="doors" value="5" id="5" class="doors" ng-model="door.cinco" ng-checked="cinco">5</br>
+                                <input type="checkbox" name="doors" value="3" id="3" class="doors" ng-model="door.tres"
+                                    ng-checked="tres">3</br>
+                                <input type="checkbox" name="doors" value="5" id="5" class="doors" ng-model="door.cinco"
+                                    ng-checked="cinco">5</br>
                             </div>
                             <hr class=hr-filter>
                             <div class="doors">
                                 <h4>CATEGORY:</h4>
                                 <select name="select_cat" id="select_cat" ng-model="$root.shop_cat_selected">
-                                    <option value = "" selected disabled hidden>select categories</option>
+                                    <option value="" selected disabled hidden>select categories</option>
                                     <option value="*" id="*">All categor</option>
                                     <option value="1" id="1">Km 0</option>
                                     <option value="2" id="2">Second Hand</option>
@@ -48,12 +57,12 @@
                         </div>
                         <div class="orderby_content">
                             <p>ORDER BY:</p>
-                            <select id="orderby" ng-model="$root.select_orderby">    
-                                <option value = "" selected disabled hidden>Order by...</option>
+                            <select id="orderby" ng-model="$root.select_orderby">
+                                <option value="" selected disabled hidden>Order by...</option>
                                 <option value="price">Price</option>
                                 <option value="km">KM</option>
                             </select>
-                            <input type="button" value="ORDER" class="order-btn"  ng-click="order_btn(select_orderby)"/>
+                            <input type="button" value="ORDER" class="order-btn" ng-click="order_btn(select_orderby)" />
                         </div>
                     </div>
                 </div>
@@ -79,11 +88,13 @@
                             <p>Up-to-date maintenance and revisions</p>
                             <ul>
                                 <li> <i id='col-ico' class='fa-solid fa-road fa-xl'></i>&nbsp;&nbsp; {{car.Km}} KM</li>
-                                <li> <i id='col-ico' class='fa-solid fa-person fa-xl'></i>&nbsp;&nbsp;&nbsp;{{car.gear_shift}}</li>
+                                <li> <i id='col-ico'
+                                        class='fa-solid fa-person fa-xl'></i>&nbsp;&nbsp;&nbsp;{{car.gear_shift}}</li>
                                 <li> <i id='col-ico' class='fa-solid fa-palette fa-xl'></i>&nbsp; {{car.color}}</li>
                             </ul>
                             <div class='buttons'>
-                                <button class='more_info_list button add' ng-click="redirect_details()">More Info</button>
+                                <button class='more_info_list button add' ng-click="redirect_details()">More
+                                    Info</button>
                                 <button class='button buy'>Buy</button>
                                 <span class='button' id='price'>{{car.price}} €</span>
                             </div>
@@ -173,13 +184,22 @@
                     </li>
                 </div>
             </div>
-            <button class="load_more_button" id="load_more_button" ng-click="more_cars_related()" ng-show="show_btn_car_releted">MORE CARS</button>
+            <button class="load_more_button" id="load_more_button" ng-click="more_cars_related()"
+                ng-show="show_btn_car_releted">MORE CARS</button>
         </div>
     </div>
-    <button class="separete_fotter"></button></br>
 
     <!-- paginacio -->
-    <div id="pagination"></div>
+    <div id="pagination" ng-show="show_pagination">
+      <div class="pages_shop">
+        <p class="no" ng-click="not_page('less')" ng-show="show_prev_red"><img src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/views/img/brand/arrow_left_red.jpg" alt="PREVIOUS_RED"></p>
+        <p class="yes" ng-click="change_page(current_page - 1)" ng-show="show_prev"><img src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/views/img/brand/arrow_left" alt="PREVIOUS"></p>
+        <p class="yes" ng-class="{'select_page': current_page == page}" ng-repeat="page in all_pages" ng-click="change_page(page)">{{page}}</p>
+        <p class="yes" ng-click="change_page(current_page + 1)" ng-show="show_next"><img src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/views/img/brand/arrow_right" alt="NEXT"></p>
+        <p class="no"  ng-click="not_page('more')" ng-show="show_next_red"><img src="/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/frontend/views/img/brand/arrow_right_red.jpg" alt="NEXT_RED"></p>
+      </div>
+    </div>
+    <button class="separete_fotter"></button></br>
 
 </body>
 

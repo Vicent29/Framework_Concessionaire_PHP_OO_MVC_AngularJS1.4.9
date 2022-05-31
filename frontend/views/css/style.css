@@ -1083,6 +1083,33 @@ p#user_info {
     text-align: center;
 }
 
+#pagination img {
+    width: 30px;
+}
+.pages_shop {
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    display: inline-flex;
+}
+.pages_shop p {
+    padding: 8px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 1px black solid;
+}
+.select_page {
+    background-color: #2e93e6;
+    color: white;
+}
+.pages_shop p.yes:hover {
+    background-color: #c9dff0;
+    font-weight: bold;
+    color: black;
+}
+.pages_shop p.no:hover {
+    background-color: rgb(238, 144, 144);
+}
 
 /* CARS RELATED */
 
