@@ -16,7 +16,7 @@ app.factory('services_pagination', ['services', 'services_map', '$rootScope', '$
     function change_page(page) {
     $scope.show_prev = true;
     $scope.show_next = true;
-
+    window.scrollTo(0, 0); 
         $scope.current_page = page;
         $scope.select_cars =  $rootScope.all_cars.slice((($scope.current_page - 1) * 4), (($scope.current_page) * 4));
         services_map.load_map( $scope.select_cars, "list");
@@ -38,10 +38,8 @@ app.factory('services_pagination', ['services', 'services_map', '$rootScope', '$
             $scope.show_next_red = true;
         }
         
-        // $("body").animate({scrollTop: $elm.offset().top}, "slow");
-        // $window.scrollTo(0, angular.element('.list__content').offsetTop);  
-        // $('html, body').animate({ scrollTop: $(".list__content") });
-        // load_favs();
+        
+        // load_favs_cars();
     }
 
 }]);

@@ -1,0 +1,337 @@
+body {
+    margin: 0;
+    color: #6a6f8c;
+    background: rgb(163, 163, 163);;
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: '';
+    display: table
+}
+
+.clearfix:after {
+    clear: both;
+    display: block
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+.login-wrap {
+    width: 100%;
+    max-height: 100%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    max-width: 525px;
+    min-height: 690px;
+    position: relative;
+    background-color: black;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+}
+
+.login-html, .login-form {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 90px 70px 50px 70px;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.login-html .sign-in-htm,
+.login-html .sign-up-htm {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all .4s linear;
+}
+
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check {
+    display: none;
+}
+
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button {
+    text-transform: uppercase;
+}
+
+.login-html .tab {
+    font-size: 22px;
+    margin-right: 15px;
+    padding-bottom: 5px;
+    margin: 0 15px 10px 0;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+}
+
+.login-html .sign-in:checked+.tab,
+.login-html .sign-up:checked+.tab {
+    color: #fff;
+    border-color: #1161ee;
+}
+
+.login-form {
+    min-height: 345px;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.login-form .group {
+    margin-bottom: 15px;
+}
+
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button {
+    width: 100%;
+    color: #fff;
+    display: block;
+}
+
+.login-form .group .input,
+.login-form .group .button {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, .1);
+}
+
+.login-form .group input[data-type="password"] {
+    /* text-security:circle; */
+    -webkit-text-security: circle;
+}
+
+.login-form .group .label {
+    color: white;
+    font-size: 14px;
+}
+
+.login-form .group .button {
+    background: #1161ee;
+}
+
+.login-form .group label .icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+    background: rgba(255, 255, 255, .1);
+}
+
+.login-form .group label .icon:before,
+.login-form .group label .icon:after {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    transition: all .2s ease-in-out 0s;
+}
+
+.login-form .group label .icon:before {
+    left: 3px;
+    width: 5px;
+    bottom: 6px;
+    transform: scale(0) rotate(0);
+}
+
+.login-form .group label .icon:after {
+    top: 6px;
+    right: 0;
+    transform: scale(0) rotate(0);
+}
+
+.login-form .group .check:checked+label {
+    color: #fff;
+}
+
+.login-form .group .check:checked+label .icon {
+    background: #1161ee;
+}
+
+.login-form .group .check:checked+label .icon:before {
+    transform: scale(1) rotate(45deg);
+}
+
+.login-form .group .check:checked+label .icon:after {
+    transform: scale(1) rotate(-45deg);
+}
+
+.login-html .sign-in:checked+.tab+.sign-up+.tab+.login-form .sign-in-htm {
+    transform: rotate(0);
+}
+
+.login-html .sign-up:checked+.tab+.login-form .sign-up-htm {
+    transform: rotate(0);
+}
+
+.hr {
+    height: 2px;
+    margin: 60px 0 20px 0;
+    background: rgba(255, 255, 255, .2);
+}
+
+.foot-lnk {
+    text-align: center;
+}
+
+.passwd_mod {
+    text-align: center;
+}
+
+label.recover_passwd:hover, label.modificate_passwd:hover{
+    color: orange;
+}
+
+#footer-sec {
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+#pages {
+    background-color: rgb(163, 163, 163);
+}
+
+#wrapper {
+    background-color: rgb(163, 163, 163);
+}
+
+/* RECOVER PASSWORD*/
+
+.recover-email-html, .recover-passwd-html{
+    min-height: 450px;
+    margin-top: -1%;
+    margin-bottom: 2%;
+}
+.recover-form hr, .recover-form-email hr{ 
+    color: #1161ee;
+    border: #1161ee solid 1px;
+    width: 90%;
+    margin-bottom: 50px;
+}
+.recover-form, .recover-form-email{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    width: 500px;
+    height:min-content;
+}
+.recover-form h2, .recover-form-email h2 {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 5%;
+    font-size: 25px;
+}
+.recover-form .group, .recover-form-email .group {
+    margin-bottom: 40px;
+}
+.recover-form label, .recover-form-email label{ 
+    text-align: center;
+    font-size: 18px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.recover-form input, .recover-form-email input { 
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    min-width: 80%;
+    min-height: 40px;
+    background-color: #333;
+    border-radius: 25px;
+}
+.recover-form span, .recover-form-email span {
+    margin-left: 11%;
+}
+#send_recover, #recover_passwd_bt, #modificate_passwd_bt {
+    background: #1161ee;
+    align-items: center;
+    width: 30%;
+    height: 40px;
+    font-weight: bolder;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-bottom: 3%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.button__recover {
+    margin-top: -20px;
+}
+
+/* SOCIAL LOGIN */
+.hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: white;
+    text-align: center;
+    height: 1.5em;
+    opacity: 0.5;
+}
+.hr-text:before {
+    content: '';
+    background: white;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+}
+.hr-text:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    color: white;
+    background-color:black;
+}
+.social_login {
+    text-align: center;
+}
+
+.button_git, .button_google{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border-radius: 25px;
+    width: 120px;
+    height: 33px;
+}
+.button_git:hover, .button_google:hover{
+   background-color: #8cdaf3;
+}
+#ic_git {
+    font-size: 27px;
+}
+#ic_google {
+    font-size: 25px;
+    color: red;
+}

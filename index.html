@@ -12,22 +12,35 @@
     <!--========== CONTROLLER AND SERVICES ==========-->
     <script src="frontend/router.js"></script>
     <script src="frontend/apiconnector.js"></script>
-    <script type = "text/javascript" src="frontend/module/contact/ctrl/ctrl_contact.js"></script>
-    <script type = "text/javascript" src="frontend/module/home/ctrl/ctrl_home.js"></script>
-    <script type = "text/javascript" src="frontend/module/search/services/services_search.js"></script>
-    <script type = "text/javascript" src="frontend/module/shop/ctrl/ctrl_shop.js"></script>
-    <script type = "text/javascript" src="frontend/module/shop/services/services_shop.js"></script>
-    <script type = "text/javascript" src="frontend/module/shop/services/services_filters.js"></script>
-    <script type = "text/javascript" src="frontend/module/shop/services/services_map.js"></script>
-    <script type = "text/javascript" src="frontend/module/shop/services/servicies_pagination.js"></script>
+    <!--==== CONTACT ====-->
+    <script type="text/javascript" src="frontend/module/contact/ctrl/ctrl_contact.js"></script>
+    <!--==== HOME ====-->
+    <script type="text/javascript" src="frontend/module/home/ctrl/ctrl_home.js"></script>
+    <!--==== SEARCH ====-->
+    <script type="text/javascript" src="frontend/module/search/services/services_search.js"></script>
+    <!--==== SHOP ====-->
+    <script type="text/javascript" src="frontend/module/shop/ctrl/ctrl_shop.js"></script>
+    <script type="text/javascript" src="frontend/module/shop/services/services_shop.js"></script>
+    <script type="text/javascript" src="frontend/module/shop/services/services_filters.js"></script>
+    <script type="text/javascript" src="frontend/module/shop/services/services_map.js"></script>
+    <script type="text/javascript" src="frontend/module/shop/services/servicies_pagination.js"></script>
+    <!--==== LOGIN ====-->
+    <script type="text/javascript" src="frontend/module/login/ctrl/ctrl_login.js"></script>
+    <script type="text/javascript" src="frontend/module/login/ctrl/ctrl_register.js"></script>
+    <script type="text/javascript" src="frontend/module/login/services/services_login.js"></script>
+    <script type="text/javascript" src="frontend/module/login/services/services_localstorage.js"></script>
+    <script type="text/javascript" src="frontend/module/login/services/services_logout.js"></script>
+    
 
     <!--========== ui.BOSTRAPP - CARRUSEL ==========-->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
-     
+
     <!--========== Infinitive scroll ==========-->
     <!-- <script src=" https://cdnjs.cloudflare.com/ajax/libs/ngInfiniteScroll/1.3.0/ng-infinite-scroll.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngInfiniteScroll/1.3.0/ng-infinite-scroll.min.js" integrity="sha512-ne+ocjIDKIYpsLbgaYGTxROa8S/oBn3YrmMQ9C38E+suuPHw6j4gpjKeOFZRNm20keK/3aANXNcXJ6KT5HIF3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngInfiniteScroll/1.3.0/ng-infinite-scroll.min.js"
+        integrity="sha512-ne+ocjIDKIYpsLbgaYGTxROa8S/oBn3YrmMQ9C38E+suuPHw6j4gpjKeOFZRNm20keK/3aANXNcXJ6KT5HIF3Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!--========== TOASTR ==========-->
     <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
@@ -40,13 +53,19 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
 
-   <!--========== FONTAWESOME ==========-->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!--========== FONTAWESOME ==========-->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+    <!--========== CSS ROUTER ==========-->
+    <script src="frontend/views/js/route-style.js"></script>
+    <link rel="stylesheet" ng-repeat="style in css" ng-href="{{ style }}">
 
     <!--========== CSS ==========-->
     <link href="frontend/views/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="frontend/views/css/style.css">
+
 
 </head>
 

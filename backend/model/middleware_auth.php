@@ -3,7 +3,7 @@ require_once(MODEL_PATH . 'JWT.php');
 class middleware {
     public static function descode_token($token){
 
-        $jwt = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/model/jwt.ini');
+        $jwt = parse_ini_file(MODEL_PATH . 'jwt.ini');
         $secret = $jwt['secret'];
 
         $JWT = new JWT;
@@ -13,7 +13,7 @@ class middleware {
     }
 
     public static function create_token($username){
-        $jwt = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/model/jwt.ini');
+        $jwt = parse_ini_file(MODEL_PATH . 'jwt.ini');
         $header = $jwt['header'];
         $secret = $jwt['secret'];
         $payload = '{"iat":"' . time() . '","exp":"' . time() + (600) . '","username":"' . $username . '"}';

@@ -37,7 +37,6 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
     } else {
         $scope.show_all_shop = true;
         services_pagination.pagination(all_cars);
-        // services_map.load_map(all_cars, "list");
     }
 
     $rootScope. search_filters_home = function (color, door, catgoria) {
@@ -70,7 +69,7 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
         }else {
             $rootScope.show_btn_car_releted = true;
         } 
-        $rootScope.info_cars_related = cars_releted.splice(0, localStorage.getItem('num_cars'));
+        $rootScope.info_cars_related = cars_releted.slice(0, localStorage.getItem('num_cars'));
     }
 
     $rootScope.change_page = function (page) {
@@ -79,7 +78,7 @@ app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $loca
 
     $rootScope.not_page = function (page) {
         if(page == "less"){
-            toastr.error("You are on the first page");
+            toastr.warning("You are on the first page");
         }else if(page == "more"){
             toastr.warning("You are on the last page");
         }

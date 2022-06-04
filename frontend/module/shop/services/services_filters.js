@@ -148,7 +148,6 @@ app.factory('services_filters', ['services', 'services_map', 'services_paginatio
     function load_orderby_filter() {
         var one_orderby = localStorage.getItem('order');
         const atributos = [one_orderby];
-        $rootScope.select_orderby = one_orderby;
         select_filters("order_filter", atributos);
     }
 

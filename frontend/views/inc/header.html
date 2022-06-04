@@ -1,32 +1,46 @@
 <html>
-    <body>
-        <!-- ======SEARCH====== -->
-        <div class="header__container">
-            <div class="search__form">
-                <select id="type_car" ng-model="$root.selected_type_car" ng-change="click_motor_brand(selected_type_car)"> 
-                    <option value = "" selected disabled hidden>TYPE CARS</option>
-                    <option value = "">All types</option>
-                    <option ng-repeat="type in tmotor_search" value="{{type.cod_tmotor}}">{{type.name_tmotor}}</option>
-                </select>
-                <select id="brand_car" ng-model="$root.selected_brand" ng-change="click_brand(selected_brand)">
-                    <option value = "" selected disabled hidden>BRANDS</option>
-                    <option value = "">All brands</option>
-                    <option ng-repeat="brand in brands_search" ng-model="prueba" value="{{brand.name_brand}}">{{brand.name_brand}}</option>
-                </select>
-                <input type="text" id="autocom" ng-model="$root.autocomplete"  ng-change="click_autocomplete(selected_type_car, selected_brand, autocomplete)" autocomplete="off"/>
-                <input type="button" value="..." id="search-btn" ng-click="click_search()" />
 
-                <ul id=nav_desp_user>
-                    <li class="log_princ" style="width:50px;height:50px;"><button class="log-icon"></button>
-                        <ul>
-                            <li id="des_inf_user"></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div id="search_auto" ng-show="show_city">
-                <div ng-click="click_select_city()" ng-repeat="city in city_search" class="searchElement">{{city.city}}</div>
+<body>
+    <!-- ======SEARCH====== -->
+    <div class="header__container">
+        <div class="search__form">
+            <select id="type_car" ng-model="$root.selected_type_car" ng-change="click_motor_brand(selected_type_car)">
+                <option value="" selected disabled hidden>TYPE CARS</option>
+                <option value="">All types</option>
+                <option ng-repeat="type in tmotor_search" value="{{type.cod_tmotor}}">{{type.name_tmotor}}</option>
+            </select>
+            <select id="brand_car" ng-model="$root.selected_brand" ng-change="click_brand(selected_brand)">
+                <option value="" selected disabled hidden>BRANDS</option>
+                <option value="">All brands</option>
+                <option ng-repeat="brand in brands_search" ng-model="prueba" value="{{brand.name_brand}}">
+                    {{brand.name_brand}}</option>
+            </select>
+            <input type="text" id="autocom" ng-model="$root.autocomplete"
+                ng-change="click_autocomplete(selected_type_car, selected_brand, autocomplete)" autocomplete="off" />
+            <input type="button" value="..." id="search-btn" ng-click="click_search()" />
+
+            <ul id=nav_desp_user>
+                <li class="log_princ" style="width:50px;height:50px;">
+                    <button class="log-icon">
+                        <a href="#/login" ng-show="show_login_default" ng-click="click_login()"><i id="col-ico" class="fa-solid fa-user fa-2xl"></i></a>
+                        <img ng-show="show_avatar" src="{{datos_user.avatar_user}}"alt="Img user">
+                    </button>
+                    <ul ng-show="show_user_loged">
+                        <li id="des_inf_user">
+                            <p id="user_info">
+                                <a ng-click="click_log_out()"><i id="icon-logout" class="fa-solid fa-right-from-bracket"></i></a>
+                                <a>{{datos_user.username}}</a>
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="search_auto" ng-show="show_city">
+            <div ng-click="click_select_city()" ng-repeat="city in city_search" class="searchElement">{{city.city}}
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
