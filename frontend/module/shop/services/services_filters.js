@@ -25,7 +25,7 @@ app.factory('services_filters', ['services', 'services_map', 'services_paginatio
                 color.push('Grey');
             }
             if (colors['Orange'] != undefined && colors['Orange'] == true) {
-                color.push('Ornage');
+                color.push('Orange');
             }
             if (colors['Brown'] != undefined && colors['Brown'] == true) {
                 color.push('Brown');

@@ -1,4 +1,4 @@
-app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $location, all_cars, services_shop, services_filters, services_map, services_pagination, toastr) {
+app.controller('ctrl_shop', function ($scope, $rootScope, $route, $window, $location, all_cars, services_shop, services_filters, services_pagination, toastr) {
     $scope.show_car_details = false;
     $scope.show_map_details = false;
     $scope.show_cars_related = false;

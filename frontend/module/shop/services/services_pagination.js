@@ -1,4 +1,4 @@
-app.factory('services_pagination', ['services', 'services_map', '$rootScope', '$window', function (services, services_map, $scope, $rootScope, $window) {
+app.factory('services_pagination', ['services', 'services_map','services_like', '$rootScope', '$window', function (services, services_map, services_like, $scope, $rootScope, $window) {
     let service = {pagination: pagination, change_page:change_page};
     return service;
     
@@ -20,6 +20,7 @@ app.factory('services_pagination', ['services', 'services_map', '$rootScope', '$
         $scope.current_page = page;
         $scope.select_cars =  $rootScope.all_cars.slice((($scope.current_page - 1) * 4), (($scope.current_page) * 4));
         services_map.load_map( $scope.select_cars, "list");
+        services_like.load_likes();
         if(page >= $rootScope.total_page ){
             $scope.show_next = false;
             $scope.show_next_red = true;
@@ -38,8 +39,6 @@ app.factory('services_pagination', ['services', 'services_map', '$rootScope', '$
             $scope.show_next_red = true;
         }
         
-        
-        // load_favs_cars();
     }
 
 }]);

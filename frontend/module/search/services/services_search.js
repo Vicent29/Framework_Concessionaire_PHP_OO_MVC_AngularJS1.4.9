@@ -1,4 +1,4 @@
-app.factory('services_search', ['services', '$rootScope', '$location', '$window', function (services, $rootScope, $location,  $window) {
+app.factory('services_search', ['services', 'services_filters', '$rootScope', '$location', '$window', function (services,  services_filters, $rootScope, $location,  $window) {
     let service = {
          search_type_motor: search_type_motor, 
          search_brand: search_brand, 
@@ -70,12 +70,7 @@ app.factory('services_search', ['services', '$rootScope', '$location', '$window'
             search.push({ "brand_car": $rootScope.search_brand_select});
         }
 
-        localStorage.removeItem('total_prod');
-        localStorage.removeItem('filters');
-        localStorage.removeItem('brand_filter');
-        localStorage.removeItem('category_filter');
-        localStorage.removeItem('type_motor_filter');
-        localStorage.removeItem('order');
+        services_filters.remove_all_filters();
 
         localStorage.setItem('search', JSON.stringify(search));
         //Mejora para que deoendiendo si esta en el home o en el shop refreque la pagina  o redireccine.
