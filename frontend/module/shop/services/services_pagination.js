@@ -11,13 +11,17 @@ app.factory('services_pagination', ['services', 'services_map','services_like', 
             $scope.all_pages.push(i);
         }
         change_page($rootScope.page);
+        localStorage.setItem('page', $rootScope.page);
     }
 
     function change_page(page) {
+        console.log("RESPUESTA");
+        console.log(localStorage.getItem('page', page));
+        console.log(page);
     $scope.show_prev = true;
     $scope.show_next = true;
     window.scrollTo(0, 0); 
-        $scope.current_page = page;
+        $scope.current_page = localStorage.getItem(page) ? localStorage.getItem(page) : page;
         $scope.select_cars =  $rootScope.all_cars.slice((($scope.current_page - 1) * 4), (($scope.current_page) * 4));
         services_map.load_map( $scope.select_cars, "list");
         services_like.load_likes();

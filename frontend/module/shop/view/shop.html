@@ -83,7 +83,7 @@
                     </div>
                     <div class='product-info'>
                         <div class='product-content'>
-                            <h1><b>{{car.id_brand}} {{car.name_model}}<a class='list__heart' id="{{car.id_car}}"><i
+                            <h1><b>{{car.id_brand}} {{car.name_model}}<a class='list__heart' ng-click="click_like()" id="{{car.id_car}}"><i
                                             id="{{car.id_car}}" class="{{car.favs_class}}"></i></a></b></h1>
                             <p>Up-to-date maintenance and revisions</p>
                             <ul>
@@ -151,21 +151,13 @@
                 <a class='button buy' href='#'>Buy</a>
                 <span class='button' id='price_details'> {{info_details.price}} <i class='fa-solid fa-euro-sign'></i>
                 </span>
-                <a class='details__heart' id="info_details.id_car"><i id=info_details.id_car
-                        class='fa-solid fa-heart fa-lg'></i></a>
+                <a class='details__heart' ng-click="click_like()" id="info_details.id_car"><i id=info_details.id_car
+                    class="{{info_details.favs_class}}"></i></a>
             </div>
         </div>
     </div>
 
     <div id='div_map_details' ng-show="show_map_details"></div>
-
-
-    <!-- div_spiner -->
-    <div id="overlay">
-        <div class="cv-spinner">
-            <span class="spinner"></span>
-        </div>
-    </div>
 
     <!-- div coches relacioandos -->
     <div class="results" ng-show="show_cars_related">

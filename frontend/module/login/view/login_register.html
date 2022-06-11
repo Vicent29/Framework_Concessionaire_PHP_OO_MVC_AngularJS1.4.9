@@ -46,26 +46,26 @@
                     <div class="sign-up-htm">
                         <div class="group">
                             <label for="user" class="label">Username</label>
-                            <input id="username_reg" type="text" class="input" name="username_reg">
-                            <span id="error_username_reg" class="error"></span>
+                            <input id="username_reg" type="text" class="input" ng-model="username_reg">
+                            <span class="error">{{error_username_reg}}</span>
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Password</label>
-                            <input id="passwd1_reg" type="password" class="input" name="passwd1_reg">
-                            <span id="error_passwd1_reg" class="error"></span>
+                            <input id="passwd1_reg" type="password" class="input" ng-model="passwd1_reg">
+                            <span id="error_passwd1_reg" class="error">{{error_passwd1_reg}}</span>
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Repeat Password</label>
-                            <input id="passwd2_reg" type="password" class="input" name="passwd2_reg">
-                            <span id="error_passwd2_reg" class="error"></span>
+                            <input id="passwd2_reg" type="password" class="input" ng-model="passwd2_reg">
+                            <span id="error_passwd2_reg" class="error">{{error_passwd2_reg}}</span>
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Email Address</label>
-                            <input id="email_reg" type="email" class="input" name="email_reg">
-                            <span id="error_email_reg" class="error"></span>
+                            <input id="email_reg" type="email" class="input" ng-model="email_reg">
+                            <span id="error_email_reg" class="error">{{error_email_reg}}</span>
                         </div>
                         <div class="group">
-                            <input type="submit" id="register" class="button" value="Sign Up">
+                            <input ng-click="click_register()" type="submit" id="register" class="button" value="Sign Up">
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">

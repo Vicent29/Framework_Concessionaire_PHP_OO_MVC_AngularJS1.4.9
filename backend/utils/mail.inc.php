@@ -14,7 +14,7 @@ class mail
                 $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
                 $e_values['fromEmail'] = 'vicentesteve2002@gmail.com';
                 $e_values['inputMatter'] = 'Email verification';
-                $e_values['inputMessage'] = "<h2 style='color:green;'>✅ Email verification ✅</h2><a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/?module=login&op=login_register_view&verify&$e_values[token]'>Click here for verify your email.</a>";
+                $e_values['inputMessage'] = "<h2 style='color:green;'>✅ Email verification ✅</h2><a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/register/verify/$e_values[token]'>Click here for verify your email.</a>";
                 break;
             case 'recover';
                 $e_values['toEmail'] = 'vicentesteve2002@gmail.com';

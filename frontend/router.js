@@ -38,7 +38,11 @@ app.config(['$routeProvider', function ($routeProvider) {
         }).when("/login", {
             templateUrl: "frontend/module/login/view/login_register.html",
             css: ["frontend/module/login/css/login.css"],
-            controller: "ctrl_login"
+            controller: "ctrl_login_register"
+        }).when("/register/verify/:token_verify", {
+            templateUrl: "frontend/module/login/view/login_register.html",
+            css: ["frontend/module/login/css/login.css"],
+            controller: "ctrl_login_register"
 
         }).otherwise("/home", {
             templateUrl: "frontend/module/home/view/home.html",

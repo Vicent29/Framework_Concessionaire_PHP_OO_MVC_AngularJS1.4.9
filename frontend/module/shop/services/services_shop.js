@@ -1,5 +1,5 @@
-app.factory('services_shop', ['services', '$rootScope', 'services_map', function (services, $rootScope, services_map) {
-    let service = { load_details: load_details, redirect_login_like: redirect_login_like, cars_releted: cars_releted};
+app.factory('services_shop', ['services', '$rootScope', 'services_map', 'services_like', function (services, $rootScope, services_map, services_like) {
+    let service = { load_details: load_details, cars_releted: cars_releted};
     return service;
 
     function load_details(id_car) {
@@ -14,6 +14,7 @@ app.factory('services_shop', ['services', '$rootScope', 'services_map', function
                     services_map.load_map($rootScope.info_details, "details");
                     cars_releted(response[0][0].motor);
                     count_more_visit(id_car);
+                    services_like.load_likes();
 
                 } else {
                     console.log("error with details" + error);
@@ -42,9 +43,5 @@ app.factory('services_shop', ['services', '$rootScope', 'services_map', function
 
     function count_more_visit(id_car) {
         services.post('shop', 'count_more_visit', { 'id_car': id_car });
-    }
-
-    function redirect_login_like() {
-        console.log("Redirect services_sho redirect like");
     }
 }]);

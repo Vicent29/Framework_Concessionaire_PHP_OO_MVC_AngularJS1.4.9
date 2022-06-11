@@ -19,8 +19,7 @@ app.factory("services_login", ["services", "services_localstorage", "$location",
                         services_localstorage.setSession(result)
                         toastr.success("Loged succesfully");
                         if (localStorage.getItem('redirect_like')) {
-                            console.log("Redirect like login service_login");
-                            // setTimeout(' window.location.href = "?module=shop&op=list"; ', 1000);
+                            $location.path("/shop");
                         } else {
                             console.log("Dentro del else");
                             localStorage.setItem('reload', "yes");

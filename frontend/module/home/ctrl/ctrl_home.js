@@ -1,7 +1,7 @@
 app.controller('ctrl_home', function ($scope, $rootScope, $window, brands, categorys, type_motor, books) {
 
     if (localStorage.getItem('reload') == "yes") {
-        localStorage.setItem('reload', "no");
+        localStorage.removeItem('reload');
         $window.location.reload();
     } else {
         // CARRUSEL
