@@ -21,7 +21,7 @@ class mail
                 $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
                 $e_values['fromEmail'] = 'vicentesteve2002@gmail.com';
                 $e_values['inputMatter'] = 'Recover password';
-                $e_values['inputMessage'] = "<h2 style='color:blue;'>Recover Password:</h2><a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/?module=login&op=login_register_view&recover&$e_values[token]'>Click here for recover your password.</a>";
+                $e_values['inputMessage'] = "<h2 style='color:blue;'>Recover Password:</h2><a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/recover/$e_values[token]'>Click here for recover your password.</a>";
                 break;
             case 'registration_notice';
                 $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
@@ -30,7 +30,7 @@ class mail
                 $e_values['inputMatter'] = 'Registration notice';
                 $e_values['inputMessage'] = "<h2 style='color:green;'><b>✅ Register Successfully ✅</b></h2>
                                             <p>Thank you for registering at Eco Car, we hope you find the car you want, at the best possible price.</p>
-                                            <a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/?module=home&op=view&load_all_view' style=' text-decoration: none;color:orange'><b>➡️ More info ⬅️​​</b></a>";
+                                            <a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/home' style=' text-decoration: none;color:orange'><b>➡️ More info ⬅️​​</b></a>";
                 break;
         }
         return self::send_mailgun($e_values);

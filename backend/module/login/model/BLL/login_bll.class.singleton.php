@@ -186,9 +186,11 @@
 		}
 
 		public function get_data_user_BLL($token) {
+			if (str_contains($token, '"')) {
+				$token = substr($token, 1, -1);
+			}
 			$json = middleware::descode_token($token);
 			return $this -> dao -> select_data_user($this->db, $json['username']);
-			
 		}
 
 		public function get_actividad_BLL() {

@@ -99,9 +99,11 @@ app.run(function ($rootScope, services, services_search, services_logout) {
 
     // --- LOAD MENU ---
     var token = localStorage.getItem('token');
+    // var social_login = localStorage.getItem('social_login');
     if (token) {
-        services.post('login', 'data_user', { 'token': token })
+        services.post('login', 'data_user', { 'token': token})
             .then(function (data) {
+                console.log(data);
                 $rootScope.show_user_loged = true;
                 $rootScope.show_avatar = true;
                 var username = data[0].username.split(' '); //Mejora para quue solo salga el nombre y no los apellidos

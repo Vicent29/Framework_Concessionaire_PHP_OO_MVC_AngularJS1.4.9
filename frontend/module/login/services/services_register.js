@@ -6,17 +6,18 @@ app.factory("services_register", ["services", "services_localstorage", "$locatio
         if (validate_register(data) != 0) {
             services.post('login', 'register', data)
                 .then(function (result) {
-                    console.log(result);
-                    if (result == "error_email") {
+                    if (result == '"error_email"') {
                         $rootScope.error_email_reg = "* El email ya esta en uso, asegurate de no tener ya una cuenta"
-                    } else if (result == "error_user") {
+                    } else if (result == '"error_user"') {
                         $rootScope.error_username_reg = "* El usuario ya esta en uso, intentalo con otro"
                     } else {
+                        $rootScope.error_email_reg = "";
+                        $rootScope.error_username_reg =""
                         toastr.warning("Check registration from email");
-                        setTimeout("location.href = '#/login';", 1500);
+                        setTimeout("location.href = '#/home';", 1500);
                     }
                 }, function (error) {
-                    console.log("Error function login in service_login" + error);
+                    console.log("Error function register in service_register" + error);
                 });
         }
 
@@ -102,9 +103,8 @@ app.factory("services_register", ["services", "services_localstorage", "$locatio
                 toastr.success("Verify email succesfully");
                 setTimeout("location.href = '#/home';", 1500);
             }, function (error) {
-                console.log("Error function login in service_login" + error);
+                console.log("Error function veryfy_email_user in service_register" + error);
             });
     }
-
 
 }]);

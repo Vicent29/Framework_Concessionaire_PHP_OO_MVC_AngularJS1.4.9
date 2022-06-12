@@ -1,4 +1,4 @@
-app.controller('ctrl_login_register', function ($scope, $rootScope, $route, $window, $location, services_login, services_register) {
+app.controller('ctrl_login_register', function ($scope, $rootScope, $route, $window, $location, services_login, services_register, services_social_login) {
 
     if ($route.current.params.token_verify) {
         var token= $route.current.params.token_verify;
@@ -13,6 +13,14 @@ app.controller('ctrl_login_register', function ($scope, $rootScope, $route, $win
     $scope.click_register = function () {
         var form_register = { 'username_reg': $scope.username_reg, 'passwd1_reg': $scope.passwd1_reg, 'passwd2_reg': $scope.passwd2_reg, 'email_reg': $scope.email_reg}
         services_register.register(form_register);
+    }
+
+    $scope.click_login_git = function () {
+        services_social_login.social_login("github");
+    }
+
+    $scope.click_login_google = function () {
+        services_social_login.social_login("google");
     }
   
 });//end controller

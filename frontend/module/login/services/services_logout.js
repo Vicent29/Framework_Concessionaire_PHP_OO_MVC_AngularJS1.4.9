@@ -5,6 +5,7 @@ app.factory('services_logout',['services','services_localstorage','$window', fun
     function logout() {
         services.post('login', 'logout')
         .then(function (data) {
+            localStorage.removeItem("social_login");
             services_localstorage.clearSession();
         }, function (error) {
             console.log("error logout");
