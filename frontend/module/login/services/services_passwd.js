@@ -50,24 +50,26 @@ app.factory("services_passwd", ["services", "services_localstorage", "$location"
     function send_new_passwd(form, email_token, opc_passwd) {
         if (opc_passwd == "modificate") {
             if (validate_modificate_password(form) != 0) {
-                var data = form + email_token;
-                console.log(data);
-                // ajaxPromise('?module=login&op=send_new_passwd_modificate', 'POST', 'JSON', data)
-                //     .then(function (data) {
-                //         if (data == "error_old_passwd") {
-                //             $("#error_old_passwd").html("* The passsword is incorrect");
-                //         } else if (data == "correctly_update") {
-                //             $("#error_old_passwd").html("");
-                //             toastr.success("Password changed successfully");
-                //             setTimeout('window.location.href = "?module=login&op=login_register_view&load_all_view"; ', 1500);
-                //         }
-                //         // }).catch(function () {
-                //         //console.log("Error send_email_modificate_passwd");
-                //     });
+                angular.extend(form, { "email_token": email_token }); //Mejora para añadir a la varible form una nueva clave/valor
+                services.post('login', 'send_new_passwd_modificate', form)
+                    .then(function (data) {
+                        if (data == '"error_old_passwd"') {
+                            if (data == '"error_old_passwd"') {
+                                $rootScope.error_old_passwd = "* The passsword is incorrect";
+                            }
+                        } else if (data == '"correctly_update"') {
+                            $rootScope.error_old_passwd = "";
+                            toastr.success("Password changed successfully");
+                            $window.location.href = '#/login';
+                        }
+
+                    }, function (error) {
+                        console.log("Error function send_new_passwd_modificate in service_passwd" + error);
+                    });
             }
         } else if (opc_passwd == "recover") {
             if (validate_recover_password(form) != 0) {
-                angular.extend(form, {"email_token":email_token}); //Mejora para añadir a la varible form una nueva clave/valor
+                angular.extend(form, { "email_token": email_token }); //Mejora para añadir a la varible form una nueva clave/valor
                 services.post('login', 'send_new_passwd_recover', form)
                     .then(function (data) {
                         if (data == '"correctly_update"') {
@@ -75,7 +77,7 @@ app.factory("services_passwd", ["services", "services_localstorage", "$location"
                             $window.location.href = '#/login';
                         }
                     }, function (error) {
-                        console.log("Error function login in service_login" + error);
+                        console.log("Error function send_new_passwd_recover in service_passwd" + error);
                     });
             }
         }
@@ -84,47 +86,51 @@ app.factory("services_passwd", ["services", "services_localstorage", "$location"
     // VALIDATES RECOVER AND CHANGE PASSSWD
 
     function validate_modificate_password(form) {
-        // var pssswd_exp = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
-        // var error = false;
+        console.log(form.old_passwd);
+        console.log(form.new_passwd);
+        var pssswd_exp = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
+        var error = false;
 
-        // if (document.getElementById('old_passwd').value.length === 0) {
-        //     document.getElementById('error_old_passwd').innerHTML = "* Tienes que escribir tu antigua contraseña";
-        //     error = true;
-        // } else {
-        //     if (document.getElementById('old_passwd').value.length < 8) {
-        //         document.getElementById('error_old_passwd').innerHTML = "* La password tiene que tener 8 caracteres como minimo";
-        //         error = true;
-        //     } else {
-        //         if (!pssswd_exp.test(document.getElementById('old_passwd').value)) {
-        //             document.getElementById('error_old_passwd').innerHTML = "* Debe de contener mayusculas, minusculas y simbolos especiales";
-        //             error = true;
-        //         } else {
-        //             document.getElementById('error_old_passwd').innerHTML = "";
-        //         }
-        //     }
-        // }
+        if (form.old_passwd === undefined) {
+            $rootScope.error_old_passwd = "* Tienes que escribir tu antigua contraseña";
+            error = true;
+        } else {
+            if (form.old_passwd.length < 8) {
+                $rootScope.error_old_passwd = "* La password tiene que tener 8 caracteres como minimo";
+                error = true;
+            } else {
+                if (!pssswd_exp.test(form.old_passwd)) {
+                    $rootScope.error_old_passwd = "* Debe de contener mayusculas, minusculas y simbolos especiales";
+                    error = true;
+                } else {
+                    $rootScope.error_old_passwd = "";
+                }
+            }
+        }
 
-        // if (document.getElementById('new_passwd').value.length === 0) {
-        //     document.getElementById('error_new_passwd').innerHTML = "* Debe de introducir la nueva contraseña";
-        //     error = true;
-        // } else if (!pssswd_exp.test(document.getElementById('new_passwd').value)) {
-        //     document.getElementById('error_new_passwd').innerHTML = "* Debe de contener mayusculas, minusculas y simbolos especiales";
-        //     error = true;
-        // } else {
-        //     if (document.getElementById('new_passwd').value.length < 8) {
-        //         document.getElementById('error_new_passwd').innerHTML = "La password tiene que tener 8 caracteres como minimo";
-        //         error = true;
-        //     } else {
-        //         if (document.getElementById('new_passwd').value === document.getElementById('old_passwd').value) {
-        //             document.getElementById('error_new_passwd').innerHTML = "* Introduzca una pasword diferente a la anterior";
-        //         } else {
-        //             document.getElementById('error_new_passwd').innerHTML = "";
-        //         }
-        //     }
-        // }
-        // if (error == true) {
-        //     return 0;
-        // }
+        if (form.new_passwd === undefined) {
+            $rootScope.error_new_passwd = "* Debe de introducir la nueva contraseña";
+            error = true;
+        } else if (!pssswd_exp.test(form.new_passwd)) {
+            $rootScope.error_new_passwd = "* Debe de contener mayusculas, minusculas y simbolos especiales";
+            error = true;
+        } else {
+            if (form.new_passwd.length < 8) {
+                $rootScope.error_new_passwd = "La password tiene que tener 8 caracteres como minimo";
+                error = true;
+            } else {
+                console.log(form.new_passwd == form.old_passwd);
+                if (form.new_passwd == form.old_passwd) {
+                    console.log("entraa");
+                    $rootScope.error_new_passwd = "* Introduzca una pasword diferente a la anterior";
+                } else {
+                    $rootScope.error_new_passwd = "";
+                }
+            }
+        }
+        if (error == true) {
+            return 0;
+        }
     }
 
 
