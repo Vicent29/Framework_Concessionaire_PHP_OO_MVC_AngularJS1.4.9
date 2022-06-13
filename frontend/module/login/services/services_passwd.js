@@ -1,4 +1,4 @@
-app.factory("services_passwd", ["services", "services_localstorage", "$location", "$window", "$rootScope", "$route", "toastr", function (services, services_localstorage, $location, $window, $rootScope, $route, toastr) {
+app.factory("services_passwd", ["services", "$location", "$window", "$rootScope", "$route", "toastr", function (services, $location, $window, $rootScope, $route, toastr) {
     let service = { email_recuperate: email_recuperate, send_new_passwd: send_new_passwd };
     return service;
 
@@ -86,8 +86,6 @@ app.factory("services_passwd", ["services", "services_localstorage", "$location"
     // VALIDATES RECOVER AND CHANGE PASSSWD
 
     function validate_modificate_password(form) {
-        console.log(form.old_passwd);
-        console.log(form.new_passwd);
         var pssswd_exp = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
         var error = false;
 
@@ -121,7 +119,6 @@ app.factory("services_passwd", ["services", "services_localstorage", "$location"
             } else {
                 console.log(form.new_passwd == form.old_passwd);
                 if (form.new_passwd == form.old_passwd) {
-                    console.log("entraa");
                     $rootScope.error_new_passwd = "* Introduzca una pasword diferente a la anterior";
                 } else {
                     $rootScope.error_new_passwd = "";
@@ -135,8 +132,6 @@ app.factory("services_passwd", ["services", "services_localstorage", "$location"
 
 
     function validate_recover_password(form) {
-        console.log(form.new_passwd1);
-        console.log(form.new_passwd2);
         var pssswd_exp = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
         var error = false;
         if (form.new_passwd1 === undefined) {

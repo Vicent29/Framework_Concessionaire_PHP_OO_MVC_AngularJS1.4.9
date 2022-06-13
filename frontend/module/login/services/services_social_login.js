@@ -1,4 +1,4 @@
-app.factory("services_social_login", ["services", "services_localstorage", "$location", "$window", "$rootScope", "toastr", function (services, services_localstorage, $location, $window, $rootScope, toastr) {
+app.factory("services_social_login", ["services", "$location", "$window", "$rootScope", "toastr", function (services, $location, $window, $rootScope, toastr) {
     let service = { social_login: social_login };
     return service;
 

@@ -75,7 +75,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         });
 }]);
 
-app.run(function ($rootScope, services, services_search, services_logout) {
+app.run(function ($rootScope, services, services_search, services_logout, services_secure_login) {
     $rootScope.count = 0;
 
     //--- SEARCH ---
@@ -110,9 +110,8 @@ app.run(function ($rootScope, services, services_search, services_logout) {
 
     // --- LOAD MENU ---
     var token = localStorage.getItem('token');
-    // var social_login = localStorage.getItem('social_login');
     if (token) {
-        services.post('login', 'data_user', { 'token': token})
+        services.post('login', 'data_user', { 'token': token })
             .then(function (data) {
                 console.log(data);
                 $rootScope.show_user_loged = true;
@@ -137,7 +136,15 @@ app.run(function ($rootScope, services, services_search, services_logout) {
     // --- LOG OUT ---
 
     $rootScope.click_log_out = function () {
-     services_logout.logout();
+        services_logout.logout();
+    }
+
+    // SECURE LOGIN
+    if (token) {
+        setInterval(function () { services_secure_login.control_activity() }, 600000); //10min= 600000ms
+        protecturl();
+        setInterval(function () { services_secure_login.refresh_token() }, 600000);
+        setInterval(function () { services_secure_login.refresh_cookie() }, 600000);
     }
 
 });
