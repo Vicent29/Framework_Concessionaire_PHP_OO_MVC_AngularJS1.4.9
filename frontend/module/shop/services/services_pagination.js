@@ -15,9 +15,6 @@ app.factory('services_pagination', ['services', 'services_map','services_like', 
     }
 
     function change_page(page) {
-        console.log("RESPUESTA");
-        console.log(localStorage.getItem('page', page));
-        console.log(page);
     $scope.show_prev = true;
     $scope.show_next = true;
     window.scrollTo(0, 0); 

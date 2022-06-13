@@ -6,9 +6,9 @@ app.factory('services_secure_login', ['services', '$window', '$location', 'toast
         var token = localStorage.getItem('token');
         services.post('login', 'controluser', { 'token': token })
             .then(function (data) {
-                if (data == "Correct_User") {
+                if (data == '"Correct_User"') {
                     console.log("CORRECTO-->El usario coincide con la session");
-                } else if (data == "Wrong_User") {
+                } else if (data == '"Wrong_User"') {
                     console.log("INCORRCTO-->Peligro estan intentando acceder a una cuenta");
                     logout_auto();
                 }
@@ -22,7 +22,7 @@ app.factory('services_secure_login', ['services', '$window', '$location', 'toast
         if (token) {
             services.post('login', 'actividad')
                 .then(function (response) {
-                    if (response == "inactivo") {
+                    if (response == '"inactivo"') {
                         console.log("usuario INACTIVO");
                         logout_auto();
                     } else {
@@ -42,12 +42,11 @@ app.factory('services_secure_login', ['services', '$window', '$location', 'toast
 
             services.post('login', 'refresh_token', { 'token': token })
                 .then(function (data_token) {
-                    if (data_token == 'error') {
+                    if (data_token == '"error"') {
                         logout_auto();
                     } else {
                         localStorage.setItem("token", data_token);
                         location.reload();
-                        // load_menu();
                     }
                 }, function (error) {
                     console.log("Error Refresh Token" + error);
@@ -67,6 +66,8 @@ app.factory('services_secure_login', ['services', '$window', '$location', 'toast
     function logout_auto() {
         localStorage.removeItem('token');
         toastr.warning("Se ha cerrado la cuenta por seguridad!!");
-        $window.location.href = '#/login';
+        // location.reload();
+        localStorage.setItem('reload', "yes");
+        $window.location.href = '#/home';
     }
 }]);

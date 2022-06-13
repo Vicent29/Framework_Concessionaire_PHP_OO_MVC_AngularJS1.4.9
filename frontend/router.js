@@ -113,7 +113,6 @@ app.run(function ($rootScope, services, services_search, services_logout, servic
     if (token) {
         services.post('login', 'data_user', { 'token': token })
             .then(function (data) {
-                console.log(data);
                 $rootScope.show_user_loged = true;
                 $rootScope.show_avatar = true;
                 var username = data[0].username.split(' '); //Mejora para quue solo salga el nombre y no los apellidos
@@ -142,7 +141,7 @@ app.run(function ($rootScope, services, services_search, services_logout, servic
     // SECURE LOGIN
     if (token) {
         setInterval(function () { services_secure_login.control_activity() }, 600000); //10min= 600000ms
-        protecturl();
+        services_secure_login.protecturl();
         setInterval(function () { services_secure_login.refresh_token() }, 600000);
         setInterval(function () { services_secure_login.refresh_cookie() }, 600000);
     }
