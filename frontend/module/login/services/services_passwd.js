@@ -9,9 +9,9 @@ app.factory("services_passwd", ["services", "$location", "$window", "$rootScope"
             var opc_passwd = $route.current.params.opc;
             services.post('login', 'send_recover_email', { "email_rec": email, "opc_passswd": opc_passwd })
                 .then(function (data) {
-                    if (data == "error_email") {
+                    if (data == '"error_email"') {
                         $rootScope.error_email_rec = "* The email doesn't exist"
-                    } else if (data == "email_social_login") {
+                    } else if (data == '"email_social_login"') {
                         toastr.error("You can't change the password, the email belongs to google or git hub");
                         $window.location.href = '#/login';
                     } else {
