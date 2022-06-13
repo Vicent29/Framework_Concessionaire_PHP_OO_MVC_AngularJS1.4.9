@@ -5,34 +5,46 @@ class mail
     {
         switch ($e_values['type']) {
             case 'contact';
-                $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['inputMatter'] = 'Email contact';
-                break;
-            case 'validate';
-                $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['fromEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['inputMatter'] = 'Email verification';
-                $e_values['inputMessage'] = "<h2 style='color:green;'>✅ Email verification ✅</h2><a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/register/verify/$e_values[token]'>Click here for verify your email.</a>";
-                break;
+            $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
+            break;
+        case 'validate';
+            $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['fromEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['inputMatter'] = 'Email verification';
+            $e_values['inputMessage'] = "<h2 style='color:green;'>✅ Email verification ✅</h2>
+                                        <p>⬇️​ To verify and finish the registration press below ⬇️​</p>
+                                        <a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/register/verify/$e_values[token]' style='text-decoration:none;color:green;font-weight:bold;margin-left:35px;'>🔵​​(VERIFICATE EMAIL)🔵​</a>";
+            break;
             case 'recover';
-                $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['fromEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['inputMatter'] = 'Recover password';
-                $e_values['inputMessage'] = "<h2 style='color:blue;'>Recover Password:</h2><a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/recover/$e_values[token]'>Click here for recover your password.</a>";
-                break;
-            case 'registration_notice';
-                $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['fromEmail'] = 'vicentesteve2002@gmail.com';
-                $e_values['inputMatter'] = 'Registration notice';
-                $e_values['inputMessage'] = "<h2 style='color:green;'><b>✅ Register Successfully ✅</b></h2>
-                                            <p>Thank you for registering at Eco Car, we hope you find the car you want, at the best possible price.</p>
-                                            <a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/home' style=' text-decoration: none;color:orange'><b>➡️ More info ⬅️​​</b></a>";
-                break;
-        }
+            $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['fromEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['inputMatter'] = 'Recover password';
+            $e_values['inputMessage'] = "<h2 style='color:blue;'>Recover Password:</h2>
+                                        <p>⬇️​ If you want to recover the password ⬇️​</p>
+                                        <a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/passwd/recover/$e_values[token]' style='text-decoration:none;color:green;font-weight:bold;margin-left:25px;'>🔑​(RECOVER PASSWORD)🔑​</a>";
+            break;
+        case 'modificate';
+            $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['fromEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['inputMatter'] = 'Change password';
+            $e_values['inputMessage'] = "<h2 style='color:blue;'>Change Password:</h2>
+                                        <p>⬇️​ If you want to change the password ⬇️​</p>
+                                        <a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/passwd/change/$e_values[token]' style='text-decoration:none;color:green;font-weight:bold;margin-left:25px;'>🔑​(CHANGE PASSWORD)🔑</a>";
+            break;
+        case 'registration_notice';
+            $e_values['toEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['inputEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['fromEmail'] = 'vicentesteve2002@gmail.com';
+            $e_values['inputMatter'] = 'Registration notice';
+            $e_values['inputMessage'] = "<h2 style='color:green;'><b>✅ Register Successfully ✅</b></h2>
+                                        <p>Thank you for registering at Eco Car, we hope you find the car you want, at the best possible price.</p>
+                                        <a href='http://localhost/Framework_Concessionaire_PHP_OO_MVC_AngularJS1.4.9/#/home' style=' text-decoration: none;color:orange'><b>➡️ More info ⬅️​​</b></a>";
+            break;
+    }
         return self::send_mailgun($e_values);
     }
 

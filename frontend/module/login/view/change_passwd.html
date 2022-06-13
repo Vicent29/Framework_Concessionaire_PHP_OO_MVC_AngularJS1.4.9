@@ -1,0 +1,23 @@
+<div class="modificate-passwd-html">
+    <br>
+    <div class="recover-form">
+        <h2><b>CHANGE PASSWORD</b></h2>
+        <hr>
+        <form id="modificate-passwd" method="post">
+            <div class="group">
+                <label>OLD PASSWORD</label><br>
+                <input id="old_passwd" type="password" class="input" ng-model="old_passwd">
+                <span class="error">{{error_old_passwd}}</span>
+            </div>
+            <div class="group">
+                <label>NEW PASSWORD</label><br>
+                <input id="new_passwd" type="password" class="input" ng-model="new_passwd">
+                <span class="error">{{error_new_passwd}}</span>
+            </div>
+        </form>
+        <br />
+        <div class="button__recover">
+            <button ng-click="send_form_change()" type="button" name="modificate_passwd_bt" id="modificate_passwd_bt">CHANGE</button>
+        </div>
+    </div><br><br><br><br>
+</div>

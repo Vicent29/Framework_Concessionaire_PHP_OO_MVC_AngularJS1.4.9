@@ -20,8 +20,12 @@
         <uri>verify_email_token</uri>
     </function>
     <function>
-        <name>send_new_passwd</name>
-        <uri>send_new_passwd</uri>
+        <name>send_new_passwd_recover</name>
+        <uri>send_new_passwd_recover</uri>
+    </function>
+    <function>
+        <name>send_new_passwd_modificate</name>
+        <uri>send_new_passwd_modificate</uri>
     </function>
     <function>
         <name>social_login</name>

@@ -43,7 +43,18 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: "frontend/module/login/view/login_register.html",
             css: ["frontend/module/login/css/login.css"],
             controller: "ctrl_login_register"
-
+        }).when("/passwd/ask_email/:opc", {
+            templateUrl: "frontend/module/login/view/ask_email.html",
+            css: ["frontend/module/login/css/login.css"],
+            controller: "ctrl_change_passwd"
+        }).when("/passwd/recover/:token_email", {
+            templateUrl: "frontend/module/login/view/recover_paswd.html",
+            css: ["frontend/module/login/css/login.css"],
+            controller: "ctrl_change_passwd"
+        }).when("/passwd/change/:token_email", {
+            templateUrl: "frontend/module/login/view/change_passwd.html",
+            css: ["frontend/module/login/css/login.css"],
+            controller: "ctrl_change_passwd"
         }).otherwise("/home", {
             templateUrl: "frontend/module/home/view/home.html",
             controller: "ctrl_home",

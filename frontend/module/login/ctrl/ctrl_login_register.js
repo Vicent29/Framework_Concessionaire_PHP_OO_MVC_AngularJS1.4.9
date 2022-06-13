@@ -22,5 +22,13 @@ app.controller('ctrl_login_register', function ($scope, $rootScope, $route, $win
     $scope.click_login_google = function () {
         services_social_login.social_login("google");
     }
+
+    $scope.clcik_recover_passwd = function () {
+        location.href = "#/passwd/ask_email/recover"; 
+    }
+
+    $scope.clcik_modificate_passwd = function () {
+        location.href = "#/passwd/ask_email/modificate";  
+    }
   
 });//end controller

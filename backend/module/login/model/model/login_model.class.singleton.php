@@ -29,8 +29,12 @@
             return $this -> bll -> get_send_recover_email_BLL($args);
         }
 
-        public function get_send_new_passwd($args) {
-            return $this -> bll -> get_send_new_passwd_BLL($args);
+        public function get_send_new_passwd_modificate($args) {
+            return $this -> bll -> get_send_new_passwd_modificate_BLL($args);
+        }
+
+        public function get_send_new_passwd_recover($args) {
+            return $this -> bll -> get_send_new_passwd_recover_BLL($args);
         }
 
         public function get_social_login($args) {
